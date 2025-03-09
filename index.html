@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="WDD 231 - Web Frontend Development, Luis Emilio Nathanael De la rosa Meneses, course assignment portal, responsive design, frontend development.">
+    <meta name="author" content="Luis Emilio Nathanael De la rosa Meneses">
+    <title>Luis De la Rosa - WDD 231 - Web Frontend Development</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="scripts/getDates.js" defer></script>
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Luis De la Rosa - WDD 231 - Web Frontend Development">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://lendherm.github.io/wdd231/images/profile.jpg">
+    <meta property="og:url" content="https://lendherm.github.io/wdd231/">
+    <meta property="og:description"
+        content="Portal del curso WDD 231: Web Frontend Development con actividades, aprendizaje y proyectos de Luis Emilio Nathanael De la Rosa Meneses.">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="divheader">
+            <span>WDD 231: Web Frontend Development - Luis Emilio Nathanael De la rosa Meneses</span>
+        </div>
+
+        <!-- Menú hamburguesa -->
+        <div id="menu-toggle" class="menu-toggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <nav class="header_nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Chamber</a></li>
+                <li><a href="#">GitHub Profile</a></li>
+                <li><a href="https://www.linkedin.com/in/nathanael-de-la-rosa-november3a21/" class="active">LinkedIn</a>
+            </ul>
+        </nav>
+
+        <!-- Botón para cambiar de modo -->
+        <div id="mode" class="mode-toggle">
+            🕶️
+        </div>
+    </header>
+
+    <main>
+        <h1>Home</h1>
+        <!-- Sección para las actividades de aprendizaje y la información -->
+        <div class="main-content">
+            <section class="card card-profile">
+                <h2>Course Work</h2>
+                <ul>
+                    <li>.</li>
+                    <li>.</li>
+                    <li>.</li>
+                </ul>
+
+            </section>
+
+            <section class="card card-information">
+                <h2>State of Mexico, Mexico</h2>
+                <img src="images/indians-entertaining-pyramid-of-the-sun-piramide-del-sol-teotihuacan-archaeological-site.webp"
+                    alt="indians-entertaining-pyramid-of-the-sun-piramide-del-sol-teotihuacan-archaeological-site">
+                <p>Pyramid of the sun</p>
+            </section>
+
+
+        </div>
+        <section class="card card-boton">
+            <h2>Web and Computer Programming Certicate</h2>
+            <ul>
+                <li><a href="#">All</a></li>
+                <li><a href="#">CSE</a></li>
+                <li><a href="#">WDD</a></li>
+            </ul>
+
+            <hr>
+            <ul>
+                <li><a href="#">CSE 110</a></li>
+                <li><a href="#">WDD 130</a></li>
+                <li><a href="#">CSE 111</a></li>
+                <li><a href="#">CSE 210</a></li>
+                <li><a href="#">WDD 131</a></li>
+                <li><a href="#">WDD 231</a></li>
+
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Luis Emilio Nathanael De la rosa Meneses, Mexico, wdd231</p>
+        <p id="lastModified"></p>
+    </footer>
+
+
+</body>
+
+</html>

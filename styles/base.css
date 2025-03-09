@@ -1,0 +1,738 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none; 
+}
+
+/* Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilos generales para el modo claro y oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+main.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+#mode {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Otras personalizaciones para el modo oscuro */
+body.dark-mode #mode {
+    color: #f0a500;
+}
+
+/* Estilos para la tarjeta (card) en modo oscuro */
+body.dark-mode .card {
+    background-color: #444;  /* Fondo más oscuro para la tarjeta */
+    color: #fff;             /* Color de texto blanco en modo oscuro */
+}
+
+body.dark-mode #visits {
+    color: #ddd; /* Cambiar el color del texto para las visitas en modo oscuro */
+}
+/* Estilo para los enlaces del menú en modo oscuro */
+body.dark-mode nav ul li a {
+    color: #f0a500; /* Color amarillo para los enlaces en modo oscuro */
+}
+
+/* Estilo para el enlace activo en modo oscuro */
+body.dark-mode nav ul li a.active {
+    background-color: #f0a500; /* Fondo amarillo para el enlace activo */
+    color: black;  /* Color de texto negro para el enlace activo */
+}
+
+/* Efecto al pasar el ratón sobre los enlaces en modo oscuro */
+body.dark-mode nav ul li a:hover {
+    background-color: #f0a500; /* Fondo amarillo cuando el ratón pasa sobre el enlace */
+    color: black; /* Color de texto negro al hacer hover */
+}
+
+body.dark-mode a {
+    color: white;
+}
+
+body.dark-mode a:hover {
+    color: black;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra el contenido verticalmente */
+    padding: 40px 20px;
+    background-color: #284c71;
+    color: #fff;
+    position: relative;
+}
+
+
+.divheader {
+    display: flex;
+    background-color: #284c71; 
+    flex-direction: row; /* Organiza la imagen y el texto horizontalmente */
+    align-items: center; /* Centra la imagen y el texto verticalmente */
+    justify-content: center;
+    margin-bottom: 20px; /* Espacio entre la imagen y la barra de navegación */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    padding: 10px 0; /* Espaciado adecuado */
+}
+
+
+
+
+
+
+.divheader span {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* Navigation Styles */
+header nav {
+    width: 100%;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center; /* Centra los elementos del menú */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+nav ul li {
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Estilo para los enlaces del menú */
+nav ul li a {
+    background-color: #444; /* Fondo negro para todos los enlaces */
+    color: white;  /* Color del texto blanco */
+    padding: 10px 20px; /* Espaciado dentro del enlace */
+    display: block; /* Hace que el enlace ocupe todo el espacio del li */
+    text-decoration: none; /* Quita el subrayado */
+    font-size: 1.2em; /* Tamaño de la fuente */
+    border-radius: 5px; /* Redondea las esquinas */
+}
+
+/* Estilo para el enlace con la clase active */
+nav ul li a.active {
+    background-color: #f0a500; /* Fondo amarillo para el enlace activo */
+    color: black;  /* Color del texto negro */
+}
+
+/* Efecto al pasar el ratón sobre los enlaces */
+nav ul li a:hover {
+    background-color: #f0a500;  /* Fondo gris oscuro cuando el ratón pasa sobre el enlace */
+}
+
+/* Menu Hamburguesa */
+.menu-toggle {
+    display: none;  /* Inicialmente escondemos el botón hamburguesa */
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+/* Estilos generales para las tarjetas */
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    width: 100%; /* Asegura que las cards ocupen todo el espacio de la columna */
+}
+
+
+/* Estilos para la sección de la bandera */
+.flag-section {
+    display: flex;
+    align-items: center; /* Alinea la bandera y el texto verticalmente */
+    gap: 20px; /* Espacio entre la bandera y el texto */
+    margin-top: 20px;
+}
+
+.flag-section img {
+    width: 150px; /* Bandera más grande */
+    height: auto; /* Mantiene la proporción de la bandera */
+    border: 1px solid #ddd; /* Borde sutil para la bandera */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.flag-info {
+    flex: 1; /* Permite que el texto ocupe el espacio restante */
+}
+
+.flag-info p {
+    font-size: 1em;
+    line-height: 1.6;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* Estilos para la tarjeta de información del clima */
+.weather-info {
+    text-align: center;
+}
+
+.weather-info figure {
+    margin: 15px 0;
+}
+
+.weather-info img {
+    width: 50px; /* Ajusta el tamaño del ícono del clima */
+}
+
+.weather-info p {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+   
+
+    .flag-section {
+        flex-direction: column; /* Apila la bandera y el texto en móviles */
+        text-align: center;
+    }
+
+    .flag-section img {
+        width: 120px; /* Reduce el tamaño de la bandera en móviles */
+    }
+}
+
+/* Main Section Styles */
+main {
+    margin-top: 20px;
+    gap: 20px; /* Espaciado entre las secciones */
+    height: 100%;
+}
+
+/* Sección de contenido principal */
+.main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* La primera columna ocupa 2 partes, la segunda 1 parte */
+    gap: 20px; /* Espaciado entre las columnas */
+}
+
+
+/* Estilos generales para el submenú */
+.submenu {
+    display: none; /* Ocultar el submenú por defecto */
+    list-style: none;
+    padding-left: 20px;
+}
+
+/* Cuando el submenú está visible */
+.submenu.show-submenu {
+    display: block; /* Mostrar el submenú */
+}
+
+/* Agregar una clase al enlace para que tenga un estilo que simule el "hamburguesa" */
+.submenu-toggle {
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+    background-color: #444;
+    color: white;
+    text-decoration: none;
+}
+
+.submenu-toggle:hover {
+    background-color: #f0a500;
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #284c71;
+    color: #fff;
+    text-align: center;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Estilos para la sección de perfil */
+.profile {
+    display: flex;
+    flex-direction: row-reverse; /* Invierte el orden para imagen a la derecha */
+    justify-content: flex-start; /* Alinea todo a la izquierda del contenedor */
+    align-items: center;
+    gap: 40px;
+    margin-left: auto; /* Empuja todo el contenido a la derecha */
+    width: 90%; /* Controla el ancho del contenedor */
+}
+
+.profile img {
+    width: 400px;
+    height: 300px;
+    border-radius: 10%;
+    object-fit: cover;
+    margin-right: 30px; /* Espacio extra a la derecha */
+}
+
+.profile-info {
+    text-align: right; /* Alinea el texto a la derecha */
+    max-width: 600px;
+}
+
+/* Estilos para la sección de la bandera */
+.flag-section {
+    display: flex;
+    flex-direction: row-reverse; /* Bandera a la derecha */
+    align-items: center;
+    gap: 40px;
+    margin-left: auto;
+    width: 90%;
+    margin-top: 30px;
+}
+
+.flag-section img {
+    width: 250px;
+    border: 2px solid #284c71;
+    margin-right: 30px;
+}
+
+.flag-info {
+    text-align: right;
+    max-width: 600px;
+}
+
+/* styles/base.css */
+
+.main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Layout de 2 columnas en desktop */
+    gap: 20px;
+}
+
+/* Estilos para la sección de recursos web */
+.card-information ul {
+    list-style-type: disc; /* Viñetas tradicionales */
+    padding-left: 2rem; /* Espaciado para las viñetas */
+    margin: 1.5rem 0;
+}
+
+.card-information ul a {
+    display: block; /* Hace que cada enlace ocupe toda la línea */
+    padding: 0.8rem 1rem;
+    margin: 0.5rem 0;
+    text-decoration: none;
+    color: #284c71;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.card-information ul a:hover {
+    background-color: #e9ecef;
+    transform: translateX(5px);
+    color: #1a365d;
+}
+
+/* Modo oscuro */
+body.dark-mode .card-information ul a {
+    background-color: #2d3748;
+    color: #e2e8f0;
+}
+
+body.dark-mode .card-information ul a:hover {
+    background-color: #4a5568;
+    color: #fff;
+}
+
+.card-boton {
+    width: 100%;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.card-boton h2 {
+    margin: 0;
+    padding: 10px;
+    background-color: #22577A; /* Azul oscuro */
+    color: white;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+}
+
+.card-boton ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.card-boton li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    
+}
+
+.card-boton a {
+    display: block;
+    padding: 10px 15px;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.card-boton a:nth-child(-n+3) {
+    background-color: black; /* Botones "All", "CSE", "WDD" */
+}
+
+.card-boton a:nth-child(-n+3):hover {
+    background-color: #333;
+}
+
+.card-boton a:not(:nth-child(-n+3)) {
+    background-color: #7B3E19; /* Café oscuro */
+}
+
+.card-boton a:hover {
+    transform: scale(1.05);
+    border-color: #CCC;
+}
+
+.card-boton a:nth-last-child(2),
+.card-boton a:nth-last-child(1) {
+    background-color: #E8E8E8; /* Gris claro */
+    color: black;
+    border: 1px solid #CCC;
+}
+
+hr {
+    grid-column: span 3;
+    border: none;
+    border-top: 1px solid #CCC;
+    margin: 10px 0;
+}
+
+
+/* Estilos para móviles */
+@media (max-width: 768px) {
+    .card-information ul {
+        padding-left: 1.5rem;
+    }
+    
+    .card-information ul a {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+/* En móviles (menos de 768px) */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr; /* Cambia a 1 columna */
+        gap: 10px; /* Reduce el espacio entre tarjetas */
+    }
+    
+    .card {
+        width: 100%; /* Asegura que las tarjetas ocupen todo el ancho */
+        margin-bottom: 15px; /* Espaciado vertical entre tarjetas */
+    }
+    
+    /* Opcional: Ajustar el tamaño de la fuente en móviles */
+    .profile-info p, .flag-info p {
+        font-size: 0.9em;
+    }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    .profile, .flag-section {
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .profile-info, .flag-info {
+        text-align: center;
+        padding: 0 20px;
+    }
+    
+    .profile img, .flag-section img {
+        margin-right: 0;
+    }
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    /* Ocultar el menú horizontal en pantallas pequeñas */
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Mostrar el botón hamburguesa */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Mostrar el menú cuando está activo */
+    header nav ul.show {
+        display: flex;
+    }
+
+    /* Aumentar el tamaño de los enlaces en pantallas pequeñas */
+    nav ul li a {
+        font-size: 1.5em;
+    }
+
+    .card.profile,
+    .card.information {
+        grid-column: span 1; /* Cada tarjeta ocupa una sola columna */
+    }
+
+    /* Estilo de la navegación para pantallas grandes */
+    nav ul {
+        justify-content: center;
+    }
+
+    nav ul li a {
+        font-size: 2em; /* Aumentar el tamaño de los enlaces en pantallas grandes */
+    }
+
+  
+    @media (min-width: 768px) {
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Más flexible */
+            gap: 25px;
+        }
+    
+        .card.learning-activities,
+        .card.information {
+            grid-column: span 1; /* Mantiene 1 columna para estas cards */
+        }
+    
+        .card-boton {
+            grid-column: 1 / -1; /* Fuerza a ocupar todas las columnas */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas internas */
+            gap: 15px;
+        }
+    
+        nav ul li a {
+            font-size: 1.3em; /* Tamaño más adecuado */
+            padding: 15px 25px; /* Más espacio en desktop */
+        }
+    }
+    
+    /* En styles/base.css */
+.card-boton {
+    grid-column: 1 / -1; /* Ocupa todas las columnas del grid */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.card-boton h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2em;
+}
+
+.card-boton ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.card-boton hr {
+    grid-column: 1 / -1;
+    margin: 1rem 0;
+    border: 0;
+    border-top: 2px solid #284c71;
+}
+
+.card-boton li {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.card-boton a {
+    text-decoration: none;
+    color: #284c71;
+    font-weight: 500;
+    display: block;
+}
+
+/* Modo oscuro */
+body.dark-mode .card-boton li {
+    background-color: #2d3748;
+}
+
+body.dark-mode .card-boton a {
+    color: #e2e8f0;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .card-boton ul {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-boton li {
+        padding: 1.2rem;
+    }
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, auto);
+    gap: 15px;
+}
+
+.card-profile {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+
+.card-information {
+    grid-column: 3 / 6;
+    grid-row: 1 / 3;
+}
+
+.card-certificate {
+    grid-column: 1 / 6;
+    grid-row: 3 / 5;
+}
+
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.certificate-group {
+    grid-column: span 3;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.course-grid {
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+hr {
+    grid-column: 1 / -1;
+    margin: 15px 0;
+    border: 1px solid #284c71;
+}
+
+/* Estilos para los enlaces */
+.card-certificate a {
+    display: block;
+    padding: 12px;
+    text-align: center;
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #284c71;
+    transition: all 0.3s ease;
+}
+
+.card-certificate a:hover {
+    background-color: #284c71;
+    color: white;
+}
+
+/* Modo oscuro */
+body.dark-mode .card-certificate a {
+    background-color: #2d3748;
+    color: #e2e8f0;
+}
+
+body.dark-mode .card-certificate a:hover {
+    background-color: #4a5568;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    
+    .card-profile,
+    .card-information,
+    .card-certificate {
+        grid-column: 1;
+        grid-row: auto;
+    }
+    
+    .certificate-grid,
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .certificate-group {
+        flex-direction: column;
+    }
+}
+  
+}
+
+
