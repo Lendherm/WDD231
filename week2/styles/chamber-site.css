@@ -1,0 +1,430 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Estilo del header */
+.site-header {
+    background-color: #002a5c; /* Azul oscuro */
+    color: white;
+    padding: 0%;
+    width: 100%; /* Abarca todo el ancho de la pantalla */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Espacio entre los divs */
+    max-width: 1400px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centra el contenido */
+    padding: 0 ; /* Espaciado lateral */
+    width: 100%;
+}
+
+
+/* Estilo del menú */
+.menu-icon {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+
+.menu-icon-symbol {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+.menu-icon-text {
+    font-size: 16px;
+}
+
+/* Estilo del aniversario */
+.anniversary {
+    text-align: center;
+    color: gold;
+    line-height: 1.2;
+}
+
+.anniversary-title {
+    font-size: 14px;
+}
+
+.anniversary-year {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.anniversary-text {
+    font-size: 12px;
+}
+
+/* Estilo del logo */
+.logo {
+    display: flex;
+    justify-content: center; /* Centra el logo horizontalmente */
+    align-items: center; /* Asegura alineación vertical */
+    flex-grow: 1; /* Ocupa espacio adicional */
+    text-align: center;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+/* Espaciador */
+.spacer {
+    flex: 1;
+}
+
+/* Estilo del botón Afiliarme */
+.affiliate-button {
+    background: linear-gradient(to right, #7027e0, #ec2f4b);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.affiliate-button:hover {
+    background: linear-gradient(to right, #ec2f4b, #7027e0);
+}
+
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    z-index: 998; /* Debajo del menú */
+    display: none;
+}
+
+
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -430px; /* Fuera de la pantalla inicialmente */
+    width: 430px; /* Ancho en vistas grandes */
+    height: 100%;
+    background: rgba(15, 41, 91, 0.9); /* Color #0f295b con opacidad del 90% */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    z-index: 999;
+    color: #ffffff; /* Texto en blanco */
+}
+
+.side-menu.open {
+    left: 0; /* Menú visible */
+}
+
+/* Estilo del texto dentro del menú */
+.side-menu nav {
+    max-width: 400px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centrar horizontalmente */
+    padding: 20px; /* Espaciado interno */
+}
+
+.side-menu h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #ffffff; /* Texto blanco */
+}
+
+.side-menu ul {
+    list-style: none; /* Elimina los puntos predeterminados */
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu ul li {
+    margin-bottom: 15px; /* Espaciado entre los elementos */
+}
+
+.side-menu ul li a {
+    display: flex; /* Hace que el icono y el texto estén alineados horizontalmente */
+    align-items: center; /* Centra verticalmente el texto y el icono */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: white; /* Cambia el color del texto */
+    font-size: 16px; /* Tamaño del texto */
+}
+
+.side-menu ul li a i {
+    color: red; /* Cambia el color de la flecha */
+    margin-right: 10px; /* Espaciado entre la flecha y el texto */
+    font-size: 14px; /* Tamaño del icono */
+}
+
+.side-menu ul li a {
+    color: #ffffff; /* Links en blanco */
+    text-decoration: none;
+}
+
+.side-menu ul li a:hover {
+    color: #d1d1d1; /* Links en gris claro al pasar el mouse */
+}
+
+/* Opcional: Estilo para el footer del menú */
+.side-menu p {
+    font-size: 14px;
+    margin-top: 15px;
+    color: #ffffff;
+}
+
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Estado activo del menú */
+
+.overlay.active {
+    display: block;
+}
+
+
+.side-menu.open {
+    left: 0; /* Mueve el menú a la pantalla */
+}
+
+.contact-info {
+    font-size: 16px;
+    color: white; /* Cambia el color del texto */
+    line-height: 1.8; /* Mejora el espaciado entre líneas */
+}
+
+.contact-info i {
+    color: #fff; /* Color blanco para los íconos */
+    margin-right: 10px; /* Espaciado entre el ícono y el texto */
+    font-size: 18px; /* Tamaño del ícono */
+}
+
+.contact-info a {
+    color: white; /* Hace el enlace de "¿Cómo llegar?" blanco */
+    text-decoration: underline; /* Agrega subrayado al enlace */
+}
+
+.contact-info a:hover {
+    color: #ff0000; /* Cambia a rojo cuando pases el mouse sobre el enlace */
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+/* Carrusel y galería */
+
+
+/* Estilos para las imágenes en la galería */
+
+
+
+#prev {
+    left: 0;
+}
+
+#next {
+    right: 0;
+}
+
+ul.social-icons {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+ul.social-icons li a {
+    font-size: 2rem; /* Tamaño de los iconos */
+    color: #000; /* Color de los iconos */
+    text-decoration: none;
+}
+
+ul.social-icons li a:hover {
+    color: #007bff; /* Cambia el color cuando se pase el mouse */
+}
+
+
+/* Asegúrate de que el formulario esté en una capa superior */
+#affiliate-form-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;  /* Ajustar al 100% de la altura de la pantalla */
+    width: 0;  /* Inicialmente oculto */
+    overflow-y: auto;  /* Permitir desplazamiento si el contenido excede la altura */
+    transition: width 0.3s ease-in-out;
+    background-color: #f8f9fa;  /* Fondo claro */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);  /* Sombra a la izquierda */
+    z-index: 1050;  /* Para asegurarte de que está por encima de otros elementos */
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* Añadir transición suave */
+#affiliate-form-container.open {
+    width: 400px; /* Establecer el ancho del formulario cuando esté abierto */
+}
+
+
+/* Footer Styles */
+footer {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #0f295b;
+    color: #fff;
+    text-align: center;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+
+/* Para pantallas pequeñas (apilar el carrusel y la galería) */
+@media (max-width: 1024px) {
+  
+
+    .gallery, .main-image {
+        width: 100%; /* Ambos ocupan todo el ancho */
+    }
+
+    .gallery {
+        display: block;
+    }
+}
+
+/* Diseño responsive HEADER */
+@media (max-width: 768px) {
+   
+
+    .menu-icon, .affiliate-button {
+        order: 1; /* Mueve estos elementos al inicio */
+    }
+
+    .anniversary, .logo {
+        order: 2; /* Mueve estos elementos después */
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .affiliate-button {
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+    }
+    .side-menu {
+        width: 100%; /* Ocupa todo el ancho de la pantalla */
+        left: -100%; /* Fuera de la pantalla inicialmente */
+    }
+
+    .side-menu.open {
+        left: 0; /* Menú visible */
+    }
+
+    .side-menu nav {
+        max-width: 100%; /* El contenido también ocupa todo el ancho */
+        padding: 20px; /* Ajusta el espaciado interno si es necesario */
+    }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+    .logo img {
+        height: 40px; /* Reduce el tamaño del logo */
+    }
+
+    .menu-icon-symbol {
+        font-size: 20px; /* Reduce el tamaño del ícono */
+    }
+
+    .affiliate-button {
+        font-size: 14px; /* Reduce el tamaño del texto */
+    }
+
+    .side-menu {
+        width: 100%; /* El menú ocupa el 80% del ancho */
+    }
+
+    .social-icons {
+        justify-content: center; /* Centra los íconos sociales */
+    }
+}
+
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    /* Ocultar el menú horizontal en pantallas pequeñas */
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Mostrar el botón hamburguesa */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Mostrar el menú cuando está activo */
+    header nav ul.show {
+        display: flex;
+    }
+
+    /* Aumentar el tamaño de los enlaces en pantallas pequeñas */
+    nav ul li a {
+        font-size: 1.5em;
+    }
+}
+
+/* Large Screen Styles (Media Query) */
+@media (min-width: 768px) {
+    .main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+        gap: 20px; /* Espaciado entre las columnas */
+    }
+
+    .card.learning-activities,
+    .card.information {
+        grid-column: span 1; /* Cada tarjeta ocupa una sola columna */
+    }
+
+    /* Estilo de la navegación para pantallas grandes */
+    nav ul {
+        justify-content: center;
+    }
+
+    nav ul li a {
+        font-size: 2em; /* Aumentar el tamaño de los enlaces en pantallas grandes */
+    }
+}
