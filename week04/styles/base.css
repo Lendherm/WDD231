@@ -1,0 +1,287 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none; 
+}
+
+/* Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilos generales para el modo claro y oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+main.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+#mode {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Otras personalizaciones para el modo oscuro */
+body.dark-mode #mode {
+    color: #f0a500;
+}
+
+/* Estilos para la tarjeta (card) en modo oscuro */
+body.dark-mode .card {
+    background-color: #444;  /* Fondo más oscuro para la tarjeta */
+    color: #fff;             /* Color de texto blanco en modo oscuro */
+}
+
+body.dark-mode #visits {
+    color: #ddd; /* Cambiar el color del texto para las visitas en modo oscuro */
+}
+/* Estilo para los enlaces del menú en modo oscuro */
+body.dark-mode nav ul li a {
+    color: #f0a500; /* Color amarillo para los enlaces en modo oscuro */
+}
+
+/* Estilo para el enlace activo en modo oscuro */
+body.dark-mode nav ul li a.active {
+    background-color: #f0a500; /* Fondo amarillo para el enlace activo */
+    color: black;  /* Color de texto negro para el enlace activo */
+}
+
+/* Efecto al pasar el ratón sobre los enlaces en modo oscuro */
+body.dark-mode nav ul li a:hover {
+    background-color: #f0a500; /* Fondo amarillo cuando el ratón pasa sobre el enlace */
+    color: black; /* Color de texto negro al hacer hover */
+}
+
+body.dark-mode a {
+    color: white;
+}
+
+body.dark-mode a:hover {
+    color: black;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra el contenido verticalmente */
+    padding: 40px 20px;
+    background-color: #284c71;
+    color: #fff;
+    position: relative;
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    background-color: #284c71; 
+    flex-direction: row; /* Organiza la imagen y el texto horizontalmente */
+    align-items: center; /* Centra la imagen y el texto verticalmente */
+    justify-content: center; /* Centra todo el contenido del profile */
+    margin-bottom: 20px; /* Espacio entre la imagen y la barra de navegación */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    padding: 10px 0; /* Espaciado adecuado */
+}
+
+/* Ajustar la imagen */
+.profile img {
+    width: 200px; /* Aumenta el tamaño de la imagen */
+    height: 200px; /* Aumenta la altura de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+    border-radius: 50%; /* Hace que la imagen sea redonda si lo deseas */
+    margin-right: 20px; /* Espacio entre la imagen y el nombre */
+}
+
+/* Profile Text */
+.profile span {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* Navigation Styles */
+header nav {
+    width: 100%;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center; /* Centra los elementos del menú */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+nav ul li {
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Estilo para los enlaces del menú */
+nav ul li a {
+    background-color: #444; /* Fondo negro para todos los enlaces */
+    color: white;  /* Color del texto blanco */
+    padding: 10px 20px; /* Espaciado dentro del enlace */
+    display: block; /* Hace que el enlace ocupe todo el espacio del li */
+    text-decoration: none; /* Quita el subrayado */
+    font-size: 1.2em; /* Tamaño de la fuente */
+    border-radius: 5px; /* Redondea las esquinas */
+}
+
+/* Estilo para el enlace con la clase active */
+nav ul li a.active {
+    background-color: #f0a500; /* Fondo amarillo para el enlace activo */
+    color: black;  /* Color del texto negro */
+}
+
+/* Efecto al pasar el ratón sobre los enlaces */
+nav ul li a:hover {
+    background-color: #f0a500;  /* Fondo gris oscuro cuando el ratón pasa sobre el enlace */
+}
+
+/* Menu Hamburguesa */
+.menu-toggle {
+    display: none;  /* Inicialmente escondemos el botón hamburguesa */
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+/* Main Section Styles */
+main {
+    margin-top: 20px;
+    display: flex; /* Apilamos los elementos verticalmente */
+    flex-direction: column; /* Apilamos las secciones de arriba a abajo */
+    gap: 20px; /* Espaciado entre las secciones */
+    height: 100%;
+}
+
+/* Sección de contenido principal */
+.main-content {
+    flex: 2;
+    display: flex;
+    flex-direction: column; /* Apilamos las tarjetas dentro de esta sección */
+    gap: 20px;
+}
+
+/* Estilo para las tarjetas */
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Submenú estilo */
+/* Estilos generales para el submenú */
+.submenu {
+    display: none; /* Ocultar el submenú por defecto */
+    list-style: none;
+    padding-left: 20px;
+}
+
+/* Cuando el submenú está visible */
+.submenu.show-submenu {
+    display: block; /* Mostrar el submenú */
+}
+
+/* Agregar una clase al enlace para que tenga un estilo que simule el "hamburguesa" */
+.submenu-toggle {
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+    background-color: #444;
+    color: white;
+    text-decoration: none;
+}
+
+.submenu-toggle:hover {
+    background-color: #f0a500;
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #284c71;
+    color: #fff;
+    text-align: center;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    /* Ocultar el menú horizontal en pantallas pequeñas */
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Mostrar el botón hamburguesa */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Mostrar el menú cuando está activo */
+    header nav ul.show {
+        display: flex;
+    }
+
+    /* Aumentar el tamaño de los enlaces en pantallas pequeñas */
+    nav ul li a {
+        font-size: 1.5em;
+    }
+}
+
+/* Large Screen Styles (Media Query) */
+@media (min-width: 768px) {
+    .main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+        gap: 20px; /* Espaciado entre las columnas */
+    }
+
+    .card.learning-activities,
+    .card.information {
+        grid-column: span 1; /* Cada tarjeta ocupa una sola columna */
+    }
+
+    /* Estilo de la navegación para pantallas grandes */
+    nav ul {
+        justify-content: center;
+    }
+
+    nav ul li a {
+        font-size: 2em; /* Aumentar el tamaño de los enlaces en pantallas grandes */
+    }
+}

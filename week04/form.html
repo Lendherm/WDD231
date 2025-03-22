@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="WDD 230 - Web Frontend Development, Luis Emilio Nathanael De la rosa Meneses, course assignment portal, responsive design, frontend development.">
+    <meta name="author" content="Luis Emilio Nathanael De la rosa Meneses">
+    <title>Form Build</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="scripts/lazyload.js"></script>
+    <script src="./scripts/form.js"></script>
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <!-- Header Section -->
+    <header>
+
+
+        <!-- Menú hamburguesa -->
+        <div id="menu-toggle" class="menu-toggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <nav class="header_nav">
+            <ul>
+                <li><a href="/index.html" class="active">Home</a></li>
+                <li><a href="chamber/chamber-site.html">Chamber</a></li>
+                <li><a href="week01/chamber-site-plan.html">Site Plan</a></li>
+                <li><a href="#">Form</a></li>
+            </ul>
+        </nav>
+
+        <!-- Botón para cambiar de modo -->
+        <div id="mode" class="mode-toggle">
+            🕶️
+        </div>
+    </header>
+    <main>
+        <form action="record.html" method="get" onsubmit="return validatePasswords()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required pattern="[A-Za-z0-9]{8,}"
+                title="Password must be at least 8 characters long and contain only letters and numbers">
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+            <p id="password-error" class="error-message"></p>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@byui\.edu$"
+                title="Please enter a valid email address from the byui.edu domain">
+
+            <label for="rating">Page Rating: <span id="rating-value">5</span></label>
+            <input type="range" id="rating" name="rating" min="1" max="10" step="1" value="5"
+                oninput="document.getElementById('rating-value').textContent = this.value">
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Luis Emilio Nathanael De la rosa Meneses, Mexico, wdd230</p>
+        <p id="lastModified"></p>
+    </footer>
+
+</body>
+
+</html>
