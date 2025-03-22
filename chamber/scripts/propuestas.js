@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </ul>
                     <div class="d-flex gap-2">
                         <a href="#" class="btn btn-outline-primary">Conocer más</a>
-                        <a href="/wdd231/week04/forms.html" class="btn btn-primary comprarBtn">Comprar</a>
+                        <a href="/WDD231/week04/forms.html" class="btn btn-primary comprarBtn">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </ul>
                     <div class="d-flex gap-2">
                         <a href="#" class="btn btn-outline-primary">Conocer más</a>
-                        <a href="/wdd231/week04/forms.html" class="btn btn-primary comprarBtn">Comprar</a>
+                        <a href="/WDD231/week04/forms.html" class="btn btn-primary comprarBtn">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </ul>
                     <div class="d-flex gap-2">
                         <a href="#" class="btn btn-outline-primary">Conocer más</a>
-                        <a href="/wdd231/week04/forms.html" class="btn btn-primary comprarBtn">Comprar</a>
+                        <a href="/WDD231/week04/forms.html" class="btn btn-primary comprarBtn">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </ul>
                     <div class="d-flex gap-2">
                         <a href="#" class="btn btn-outline-primary">Conocer más</a>
-                        <a href="/wdd231/week04/forms.html" class="btn btn-primary comprarBtn">Comprar</a>
+                        <a href="/WDD231/week04/forms.html" class="btn btn-primary comprarBtn">Comprar</a>
                     </div>
                 </div>
             </div>
