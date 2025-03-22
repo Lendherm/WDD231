@@ -17,6 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.15.0/plotly.min.js"></script>
     <script src="./scripts/getDates.js"></script>
     <script src="./scripts/propuestas.js"></script>
+    <script src="./scripts/weather.js"></script>
 
 
 </head>
@@ -86,6 +87,15 @@
                 <!-- Gráfica de estadísticas con Plotly -->
                 <h4>Gráfica Estadística</h4>
                 <div id="statsChart" style="height: 400px;"></div>
+
+                <h4>Weather Information</h4>
+                <p id="location">Loading location...</p>
+                <p id="temperature">Loading temperature...</p>
+                <p id="weather-description">Loading weather description...</p>
+                <figure>
+                    <img id="weather-icon" src="" alt="Weather Icon">
+                    <figcaption id="weather-caption"></figcaption>
+                </figure>
             </div>
 
             <div class="contact-info">
