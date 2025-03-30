@@ -1,115 +1,126 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Crear el CSS dinámicamente y agregarlo al head del documento
-    const style = document.createElement('style');
-    style.innerHTML = `
-        /* Estilo base para el contenedor */
-        #affiliate-form-container {
-            width: 0; /* Inicialmente cerrado */
-            height: 100vh; /* Altura de la pantalla completa */
-            position: fixed; /* Fijo en la pantalla */
-            top: 0;
-            right: 0; /* O end: 0 si usas Grid */
-            z-index: 999; /* Asegúrate de que esté por encima de otros elementos */
-            background-color: #f8f9fa; /* Fondo claro */
-            overflow: hidden; /* Ocultar contenido fuera de la caja */
-            transition: width 0.5s ease-in-out; /* Animación suave para el ancho */
-        }
+formContainer.innerHTML = `
+<div class="af-form-container">
+    <div class="af-form-header">
+        <h2 class="af-form-title">Formulario de Afiliación</h2>
+        <button class="af-close-button" id="close-form">×</button>
+    </div>
 
-        /* Cuando el contenedor tenga la clase "open", se expandirá */
-        #affiliate-form-container.open {
-            width: 300px; /* Ajusta el tamaño cuando esté abierto */
-        }
+    <div class="af-memberships">
+        <h3 class="af-section-title">Membresías</h3>
+        <p class="af-intro-text">¡En CANACO Ciudad de México, queremos que tu empresa crezca!</p>
 
-        /* Estilo para el botón de cerrar */
-        #close-form {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        /* Estilo para el contenido dentro del formulario */
-        #affiliate-form-container .content {
-            padding: 20px;
-        }
-
-        /* Si necesitas más ajustes específicos */
-        #affiliate-form-container .card {
-            margin-bottom: 15px;
-        }
-    `;
-    document.head.appendChild(style);
-
-    // Obtener el botón de Afiliación
-    const affiliateButton = document.querySelector(".affiliate-button");
-
-    if (affiliateButton) {
-        console.log("Botón de afiliación detectado.");
-    } else {
-        console.log("No se detectó el botón de afiliación.");
-    }
-
-    // Crear el contenedor del formulario
-    const formContainer = document.createElement("div");
-    formContainer.id = "affiliate-form-container";
-    formContainer.classList.add("side-menu", "p-4", "bg-light", "position-fixed", "top-0", "end-0", "shadow-lg", "overflow-auto");
-    formContainer.style.width = "0"; // Inicialmente el formulario está colapsado
-    formContainer.style.height = "100vh"; // Asegura que ocupe toda la pantalla
-    document.body.appendChild(formContainer);
-
-    // Contenido del formulario
-    formContainer.innerHTML = `
-        <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
-            <h2 class="fs-5">Formulario de Afiliación</h2>
-            <button class="btn-close" id="close-form">&times;</button>
-        </div>
-
-        <!-- Contenido de Membresías -->
-        <div class="mt-4">
-            <h3 class="mb-4">Membresías</h3>
-            <p class="lead">¡En CANACO Ciudad de México, queremos que tu empresa crezca!</p>
-
-            <!-- Membresía MIPYME -->
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h4 class="card-title" id="membership-title">hola</h4>
-                
-                    <div class="d-flex gap-2">
-                        <a href="#" class="btn btn-outline-primary">Conocer más</a>
-                        <a href="#" class="btn btn-primary comprarBtn">Comprar</a>
-                    </div>
-                </div>
+        <!-- Membresía MIPYME -->
+        <div class="af-card">
+            <h4 class="af-card-title">MIPYME</h4>
+            <p class="af-card-subtitle">¡Ideal para pequeñas y medianas empresas!</p>
+            <p class="af-card-price">$2,400.00</p>
+            <ul class="af-benefits-list">
+                <li class="af-benefit-item">✓ Engomado del SIEM</li>
+                <li class="af-benefit-item">✓ Obtén 10% de descuento en eventos</li>
+                <li class="af-benefit-item">✓ Asesoría jurídica</li>
+                <li class="af-benefit-item">✓ Acceso a la Oficina Virtual</li>
+                <li class="af-benefit-item">✓ Networking Empresarial</li>
+                <li class="af-benefit-item">✓ Reuniones empresariales</li>
+                <li class="af-benefit-item">✓ 3 meses de publicidad en la cuponera de descuentos CANACO</li>
+                <li class="af-benefit-item">✓ Trámites para uso de suelo</li>
+                <li class="af-benefit-item">✓ Acceso a conferencias gratuitas</li>
+            </ul>
+            <div class="af-buttons-container">
+                <a href="#" class="af-secondary-btn">Conocer más</a>
+                <a href="/WDD231/week04/forms.html" class="af-primary-btn af-buy-btn">Comprar</a>
             </div>
         </div>
-    `;
 
-    // Agregar evento para mostrar el formulario
-    if (affiliateButton) {
-        affiliateButton.addEventListener("click", function (e) {
-            e.preventDefault();
-            console.log("Formulario de afiliación mostrado.");
-            formContainer.classList.add('open');  // Abre el formulario con la clase 'open'
-        });
+        <!-- Membresía COMERCIAL -->
+        <div class="af-card">
+            <h4 class="af-card-title">COMERCIAL</h4>
+            <p class="af-card-subtitle">¡Expande tus relaciones a nivel mundial!</p>
+            <p class="af-card-price">$4,500.00</p>
+            <ul class="af-benefits-list">
+                <li class="af-benefit-item"><strong>Todos los beneficios de la membresía MIPyme más:</strong></li>
+                <li class="af-benefit-item">✓ Obtén 20% de descuento en eventos</li>
+                <li class="af-benefit-item">✓ Uso de salas empresariales</li>
+                <li class="af-benefit-item">✓ Asesorías en Comercio Exterior</li>
+                <li class="af-benefit-item">✓ Reuniones empresariales</li>
+                <li class="af-benefit-item">✓ 3 Cortesías para el Seminario de Reformas Fiscales</li>
+                <li class="af-benefit-item">✓ 4 post en redes sociales</li>
+                <li class="af-benefit-item">✓ Revisión de contratos</li>
+                <li class="af-benefit-item">✓ Networking empresarial</li>
+            </ul>
+            <div class="af-buttons-container">
+                <a href="#" class="af-secondary-btn">Conocer más</a>
+                <a href="/WDD231/week04/forms.html" class="af-primary-btn af-buy-btn">Comprar</a>
+            </div>
+        </div>
+
+        <!-- Membresía NEGOCIOS -->
+        <div class="af-card">
+            <h4 class="af-card-title">NEGOCIOS</h4>
+            <p class="af-card-subtitle">¡Crece sin límites!</p>
+            <p class="af-card-price">$10,500.00</p>
+            <ul class="af-benefits-list">
+                <li class="af-benefit-item"><strong>Todos los beneficios de la membresía Comercial más:</strong></li>
+                <li class="af-benefit-item">✓ Logo institucional de Cámara de Comercio para alojar en su portal web</li>
+                <li class="af-benefit-item">✓ Costo preferencial en cursos de capacitación IN COMPANY</li>
+                <li class="af-benefit-item">✓ Precio preferencial en CUADERNO ATA a la exportación</li>
+                <li class="af-benefit-item">✓ Obtén 25% de descuento en Certificados de Origen no preferenciales</li>
+                <li class="af-benefit-item">✓ Revisión y elaboración de contratos</li>
+                <li class="af-benefit-item">✓ Asesoría en Aviso de Privacidad</li>
+            </ul>
+            <div class="af-buttons-container">
+                <a href="#" class="af-secondary-btn">Conocer más</a>
+                <a href="/WDD231/week04/forms.html" class="af-primary-btn af-buy-btn">Comprar</a>
+            </div>
+        </div>
+
+        <!-- Membresía SELECTA -->
+        <div class="af-card">
+            <h4 class="af-card-title">SELECTA</h4>
+            <p class="af-card-subtitle">¡Únete a los grandes!</p>
+            <p class="af-card-price">$21,000.00</p>
+            <ul class="af-benefits-list">
+                <li class="af-benefit-item"><strong>Todos los beneficios de la membresía de Negocios más:</strong></li>
+                <li class="af-benefit-item">✓ 1 stand (2x2) en uno de nuestros eventos institucionales</li>
+                <li class="af-benefit-item">✓ Revisión y elaboración de contratos mercantil y laboral</li>
+                <li class="af-benefit-item">✓ Atención de quejas ante PROFECO, visitas de verificación y audiencias</li>
+                <li class="af-benefit-item">✓ 50% de descuentos en servicios jurídicos</li>
+                <li class="af-benefit-item">✓ 6 artículos en el blog Canaco</li>
+                <li class="af-benefit-item">✓ Asesoría en arbitraje comercial</li>
+            </ul>
+            <div class="af-buttons-container">
+                <a href="#" class="af-secondary-btn">Conocer más</a>
+                <a href="/WDD231/week04/forms.html" class="af-primary-btn af-buy-btn">Comprar</a>
+            </div>
+        </div>
+    </div>
+</div>
+`;    
+
+    // Funciones para mostrar/ocultar
+    function showForm() {
+        formContainer.classList.add("active");
+        overlay.classList.add("active");
+        document.body.style.overflow = "hidden";
     }
 
-    // Evento para cerrar el formulario
-    const closeButton = document.getElementById("close-form");
-    if (closeButton) {
-        closeButton.addEventListener("click", function () {
-            console.log("Formulario de afiliación cerrado.");
-            formContainer.classList.remove('open'); // Cierra el formulario
-        });
+    function hideForm() {
+        formContainer.classList.remove("active");
+        overlay.classList.remove("active");
+        document.body.style.overflow = "";
     }
 
-    // Cambiar el texto "hola" por "adiós" al hacer clic en "Comprar"
-    const comprarBtns = document.querySelectorAll(".comprarBtn");
-    comprarBtns.forEach(function(btn) {
-        btn.addEventListener("click", function(e) {
-            e.preventDefault();
-            const title = this.closest(".card-body").querySelector("#membership-title");
-            if (title) {
-                title.textContent = "adiós";  // Cambia el texto del título
-            }
-        });
+    // Event listeners
+    affiliateButton.addEventListener("click", function(e) {
+        e.preventDefault();
+        showForm();
     });
-});
+
+    document.getElementById("af-close-form").addEventListener("click", hideForm);
+    overlay.addEventListener("click", hideForm);
+
+    // Cerrar con la tecla ESC
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" && formContainer.classList.contains("active")) {
+            hideForm();
+        }
+    });

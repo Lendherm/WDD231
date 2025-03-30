@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     // Obtener el botón de Afiliación
     const affiliateButton = document.querySelector(".affiliate-button");
