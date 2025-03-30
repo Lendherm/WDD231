@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     </ul>
                     <div class="af-buttons-container">
                         <a href="#" class="af-secondary-btn">Conocer más</a>
-                        <a href="/WDD231/week04/forms.html" class="af-primary-btn af-buy-btn">Comprar</a>
+                        <a href="#" class="af-primary-btn af-buy-btn">Comprar</a>
                     </div>
                 </div>
                 
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     </ul>
                     <div class="af-buttons-container">
                         <a href="#" class="af-secondary-btn">Conocer más</a>
-                        <a href="/WDD231/week04/forms.html" class="af-primary-btn af-buy-btn">Comprar</a>
+                        <a href=" #" class="af-primary-btn af-buy-btn">Comprar</a>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     </ul>
                     <div class="af-buttons-container">
                         <a href="#" class="af-secondary-btn">Conocer más</a>
-                        <a href="/WDD231/week04/forms.html" class="af-primary-btn af-buy-btn">Comprar</a>
+                        <a href="#" class="af-primary-btn af-buy-btn">Comprar</a>
                     </div>
                 </div>
 
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     </ul>
                     <div class="af-buttons-container">
                         <a href="#" class="af-secondary-btn">Conocer más</a>
-                        <a href="/WDD231/week04/forms.html" class="af-primary-btn af-buy-btn">Comprar</a>
+                        <a href="#" class="af-primary-btn af-buy-btn">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -124,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
      overlay.classList.add("active");
      document.body.style.overflow = "hidden";
      formContainer.scrollTop = 0; // Resetear scroll
+  
  }
 
  function hideForm() {
@@ -178,4 +179,6 @@ document.addEventListener("DOMContentLoaded", function() {
          hideForm();
      }
  });
+
+
 });

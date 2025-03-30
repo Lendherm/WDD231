@@ -1,4 +1,3 @@
-// affiliate-form-banco.js
 document.addEventListener("DOMContentLoaded", function() {
     // Variables de estado
     let isInDetailsForm = false;
@@ -32,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
     
-    // Mostrar formulario principal
+    // Mostrar formulario principal con animación
     function showMainForm() {
         formContainer.classList.add("active");
         overlay.classList.add("active");
@@ -45,6 +44,16 @@ document.addEventListener("DOMContentLoaded", function() {
         
         renderFormContent();
         setupSmoothScroll();
+        animateMembershipCards();
+    }
+
+    // Animación de tarjetas
+    function animateMembershipCards() {
+        const cards = document.querySelectorAll('.af-card');
+        cards.forEach((card, index) => {
+            card.style.animation = `cardEntrance 700ms ease-out ${index * 100}ms forwards`;
+            card.style.opacity = '0';
+        });
     }
     
     // Configurar scroll suave
@@ -135,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     "Todos los beneficios COMERCIAL",
                     "Logo institucional",
                     "Descuentos en cursos IN COMPANY",
-                    " Precio preferencial en CUADERNO ATA"
+                    "Precio preferencial en CUADERNO ATA"
                 ]
             },
             {
@@ -177,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
                 <div class="af-form-details-container">
                     <div class="af-form-section">
-                        <form id="membershipForm" method="get" action="thankyou.html" class="af-form">
+                        <form id="membershipForm" class="af-form">
                             <div class="af-selected-membership">
                                 <h3 class="af-selected-title">${currentMembershipType}</h3>
                                 <p class="af-selected-price">${currentMembershipPrice}</p>
@@ -221,24 +230,14 @@ document.addEventListener("DOMContentLoaded", function() {
         return `
             <!-- Sección de Información Personal -->
             ${createFormGroup('Información Personal', 'h3', true)}
-            ${createFormInput('Nombre(s)*', 'firstName', 'text', {required: true, autocomplete: 'given-name'})}
-            ${createFormInput('Apellidos*', 'lastName', 'text', {required: true, autocomplete: 'family-name'})}
-            ${createFormInput('Puesto en la organización', 'title', 'text', {
-                pattern: '[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s\\-]{7,}',
-                autocomplete: 'organization-title'
-            })}
-            ${createFormInput('Correo electrónico*', 'email', 'email', {
-                required: true,
-                placeholder: 'ejemplo@dominio.com'
-            })}
+            ${createFormInput('Nombre(s)*', 'firstName', 'text', {required: true})}
+            ${createFormInput('Apellidos*', 'lastName', 'text', {required: true})}
+            ${createFormInput('Correo electrónico*', 'email', 'email', {required: true})}
             ${createFormInput('Teléfono móvil*', 'phone', 'tel', {required: true})}
 
             <!-- Sección de Información Empresarial -->
             ${createFormGroup('Información de la Empresa', 'h3', true)}
-            ${createFormInput('Nombre de la empresa/organización*', 'company', 'text', {
-                required: true,
-                autocomplete: 'organization'
-            })}
+            ${createFormInput('Nombre de la empresa/organización*', 'company', 'text', {required: true})}
             ${createFormTextarea('Descripción de la empresa', 'description')}
 
             <!-- Sección de Información de Pago -->
@@ -281,27 +280,10 @@ document.addEventListener("DOMContentLoaded", function() {
         return `
             <div class="af-payment-section">
                 ${createFormGroup('Información de Pago', 'h3', true)}
-                <div class="af-payment-methods">
-                    <div class="af-payment-method visa active" data-type="visa"></div>
-                    <div class="af-payment-method mastercard" data-type="mastercard"></div>
-                    <div class="af-payment-method amex" data-type="amex"></div>
-                </div>
-                ${createFormInput('Número de tarjeta*', 'cardNumber', 'text', {
-                    required: true,
-                    pattern: '\\d{13,16}',
-                    placeholder: '1234 5678 9012 3456'
-                })}
-                ${createFormInput('Fecha de expiración*', 'expiry', 'text', {
-                    required: true,
-                    pattern: '(0[1-9]|1[0-2])\\/\\d{2}',
-                    placeholder: 'MM/AA'
-                })}
-                ${createFormInput('CVV*', 'cvv', 'text', {
-                    required: true,
-                    pattern: '\\d{3,4}',
-                    placeholder: '123'
-                })}
-                ${createFormInput('Nombre en la tarjeta*', 'cardName', 'text', {required: true})}
+                ${createFormInput('Número de tarjeta*', 'cardNumber', 'text', {required: true})}
+                ${createFormInput('Fecha de expiración (MM/AA)*', 'expiry', 'text', {required: true})}
+                ${createFormInput('Código de seguridad*', 'cvv', 'text', {required: true})}
+                ${createFormInput('Nombre del titular*', 'cardName', 'text', {required: true})}
             </div>
         `;
     }
@@ -313,10 +295,7 @@ document.addEventListener("DOMContentLoaded", function() {
             "COMERCIAL": ["✓ 20% descuento eventos", "✓ Salas empresariales", "✓ Comercio exterior"],
             "NEGOCIOS": ["✓ Logo institucional", "✓ Cursos IN COMPANY", "✓ Cuaderno ATA"],
             "SELECTA": ["✓ Stand en eventos", "✓ Revisión contratos", "✓ Atención PROFECO"]
-        
-
-
-                };
+        };
         
         return benefits[type]?.map(b => `<li class="af-benefit-item">${b}</li>`).join('') 
             || '<li class="af-benefit-item">✓ Beneficios personalizados según tu membresía</li>';
@@ -328,7 +307,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (closeButton) closeButton.addEventListener('click', closeForm);
 
         if (isInDetailsForm) {
-            setupPaymentMethods();
             setupFormValidation();
             document.getElementById('af-back-to-memberships').addEventListener('click', goBackToMemberships);
         } else {
@@ -338,72 +316,68 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    function setupPaymentMethods() {
-        document.querySelectorAll('.af-payment-method').forEach(method => {
-            method.addEventListener('click', function() {
-                document.querySelectorAll('.af-payment-method').forEach(m => m.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-    }
-
     function setupFormValidation() {
         const form = document.getElementById('membershipForm');
         form.addEventListener('submit', function(e) {
-            if (!this.checkValidity()) {
-                e.preventDefault();
+            e.preventDefault();
+            
+            if (this.checkValidity()) {
+                const formData = new FormData(this);
+                showConfirmation(formData);
+            } else {
                 alert('Por favor complete todos los campos requeridos correctamente.');
             }
-        });
-
-        // Formatear número de tarjeta
-        document.getElementById('cardNumber').addEventListener('input', function(e) {
-            this.value = this.value.replace(/\D/g, '')
-                .replace(/(\d{4})(?=\d)/g, '$1 ');
-        });
-
-        // Formatear fecha de expiración
-        document.getElementById('expiry').addEventListener('input', function(e) {
-            this.value = this.value.replace(/\D/g, '')
-                .replace(/(\d{2})(?=\d{2})/, '$1/');
         });
     }
 
     function showConfirmation(formData) {
-    const confirmationHTML = `
-        <div class="af-confirmation">
-            <div class="af-form-header">
-                <h2 class="af-form-title">¡Gracias por su afiliación!</h2>
-                <button class="af-close-button" id="af-close-form">×</button>
-            </div>
-            <div class="af-confirmation-content">
-                <h3>Resumen de su solicitud</h3>
-                <div class="af-summary-grid">
-                    ${createSummaryItem('Nombre', `${formData.get('firstName')} ${formData.get('lastName')}`)}
-                    ${createSummaryItem('Email', formData.get('email'))}
-                    ${createSummaryItem('Teléfono', formData.get('phone'))}
-                    ${createSummaryItem('Empresa', formData.get('company'))}
-                    ${formData.get('description') ? 
+        const confirmationHTML = `
+            <div class="af-confirmation">
+                <div class="af-form-header">
+                    <h2 class="af-form-title">¡Gracias por su afiliación!</h2>
+                    <button class="af-close-button" id="af-close-form">×</button>
+                </div>
+                <div class="af-confirmation-content">
+                    <h3>Resumen de su solicitud</h3>
+                    <div class="af-summary-grid">
+                        ${createSummaryItem('Nombre', `${formData.get('firstName')} ${formData.get('lastName')}`)}
+                        ${createSummaryItem('Email', formData.get('email'))}
+                        ${createSummaryItem('Teléfono', formData.get('phone'))}
+                        ${createSummaryItem('Empresa', formData.get('company'))}
+                         ${formData.get('description') ? 
                         createSummaryItem('Descripción', formData.get('description')) : 
                         ''}
-                    ${createSummaryItem('Membresía', `${currentMembershipType} - ${currentMembershipPrice}`)}
-                    ${createSummaryItem('Fecha', new Date(formData.get('timestamp')).toLocaleDateString('es-MX', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                    })}
-                </div>
-                <div class="af-confirmation-message">
-                    <p>Hemos recibido su información exitosamente</p>
-                    <button class="af-primary-btn" id="af-close-confirmation">Cerrar</button>
+                        ${createSummaryItem('Membresía', `${currentMembershipType} - ${currentMembershipPrice}`)}
+                        ${createSummaryItem('Fecha', new Date(formData.get('timestamp')).toLocaleDateString('es-MX', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        }))}
+                       
+                    </div>
+                    <div class="af-confirmation-message">
+                        <p>Hemos recibido su información exitosamente</p>
+                        <button class="af-primary-btn" id="af-close-confirmation">Cerrar</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    `;
-    
-    formContainer.querySelector('.af-form-section').innerHTML = confirmationHTML;
-    document.getElementById('af-close-confirmation').addEventListener('click', closeForm);
-}
+        `;
+        
+        formContainer.querySelector('.af-form-section').innerHTML = confirmationHTML;
+        document.getElementById('af-close-confirmation').addEventListener('click', closeForm);
+    }
+
+    function createSummaryItem(label, value) {
+        const isMultiline = value && value.length > 30;
+        return `
+            <div class="af-summary-item">
+                <span class="af-summary-label">${label}:</span>
+                <span class="af-summary-value ${isMultiline ? 'multiline' : ''}">${
+                    value || 'No proporcionada'
+                }</span>
+            </div>
+        `;
+    }
 
     function handleMembershipSelection(e) {
         e.preventDefault();
@@ -426,14 +400,10 @@ document.addEventListener("DOMContentLoaded", function() {
         document.body.style.overflow = "";
     }
 
-    
-
     // Evento global para tecla Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === "Escape" && formContainer.classList.contains("active")) {
             closeForm();
         }
     });
-
-    
 });

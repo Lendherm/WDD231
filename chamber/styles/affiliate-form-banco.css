@@ -1,0 +1,357 @@
+/* Main Form Container */
+.af-form-details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Form Section */
+.af-form-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Membership Info Section */
+.af-membership-info {
+    flex: 1;
+    min-width: 300px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Form Styles */
+.af-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.af-form-group {
+    margin-bottom: 15px;
+}
+
+.af-form-group.full-width {
+    grid-column: span 2;
+}
+
+.af-form-group.half-width {
+    grid-column: span 1;
+}
+
+.af-form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.af-form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.af-form-input:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 0 2px rgba(41, 128, 185, 0.2);
+}
+
+.af-form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Payment Section */
+.af-payment-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.af-payment-methods {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.af-payment-method {
+    width: 50px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.af-payment-method.active {
+    opacity: 1;
+}
+
+.af-payment-method.visa {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visa/visa-original.svg');
+}
+
+.af-payment-method.mastercard {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mastercard/mastercard-original.svg');
+}
+
+.af-payment-method.amex {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/American_Express_logo.svg/1200px-American_Express_logo.svg.png');
+    background-size: cover;
+}
+
+/* Membership Card in Form */
+.af-selected-membership {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.af-selected-title {
+    color: #2980b9;
+    margin-top: 0;
+}
+
+.af-selected-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #27ae60;
+    margin: 10px 0;
+}
+
+/* Submit Button */
+.af-submit-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.af-submit-btn:hover {
+    background-color: #2ecc71;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .af-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .af-form-group.full-width,
+    .af-form-group.half-width {
+        grid-column: span 1;
+    }
+    
+    .af-form-details-container {
+        flex-direction: column;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.af-form-section,
+.af-membership-info {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.af-membership-info {
+    animation-delay: 0.2s;
+}
+
+
+/* Back button styles */
+.af-back-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #2980b9;
+    padding: 5px 15px;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 11;
+    transition: all 0.3s;
+}
+
+.af-back-button:hover {
+    color: #1a5276;
+    background-color: rgba(41, 128, 185, 0.1);
+    border-radius: 4px;
+}
+.af-form-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    position: relative; /* Added for absolute positioning */
+}
+
+.af-back-button {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.af-close-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #7f8c8d;
+    padding: 0 15px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 11;
+    transition: color 0.2s;
+}
+
+.af-close-button:hover {
+    color: #e74c3c;
+}
+
+
+.af-form-title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    text-align: center;
+    flex-grow: 1;
+    padding: 0 60px; /* Space for buttons */
+}
+
+
+/* Animaciones */
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos de confirmación */
+.af-confirmation {
+    padding: 2rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.af-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.af-summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.af-summary-label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.af-summary-value {
+    color: #34495e;
+}
+
+.af-confirmation-message {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 2px solid #ecf0f1;
+}
+
+.af-summary-value.multiline {
+    white-space: pre-wrap;
+    text-align: left;
+    max-width: 300px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .af-form-header {
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+    
+    .af-back-button {
+        position: static;
+        order: 1;
+        width: 100%;
+        text-align: left;
+        transform: none;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+    }
+    
+    .af-form-title {
+        order: 2;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    
+    .af-close-button {
+        position: absolute;
+        right: 10px;
+        top: 15px;
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .af-back-button {
+        font-size: 1.2rem;
+    }
+    
+    .af-form-title {
+        font-size: 1.3rem;
+    }
+    
+    .af-close-button {
+        font-size: 1.8rem;
+    }
+}
