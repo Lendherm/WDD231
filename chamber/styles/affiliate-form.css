@@ -59,15 +59,10 @@
     margin-bottom: 20px;
     background-color: #fff;
     position: sticky;
-    top: 80px;
+    top: 80px; /* Debajo del header */
     z-index: 8;
-    will-change: transform, opacity;
     box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    transform: translateY(0);
-    opacity: 1;
-    transition: 
-        transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
-        opacity 0.2s ease-out;
+    /* Eliminamos todas las transiciones y transformaciones */
 }
 
 .af-section-title {
@@ -93,8 +88,7 @@
     max-width: 1400px;
     margin: 0 auto;
     box-sizing: border-box;
-    scroll-margin-top: 120px;
-
+    
     
 }
 

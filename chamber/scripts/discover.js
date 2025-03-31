@@ -81,7 +81,12 @@ function cargarGaleria() {
         imgContainer.classList.add("img-container");
 
         const img = document.createElement("img");
-        img.src = `https://picsum.photos/800/550?random=${index + 1}`;
+        // Cambiar la fuente de la imagen solo para "Directory"
+        if (palabra === "Directory") {
+            img.src = "./images/directory.webp";
+        } else {
+            img.src = `https://picsum.photos/800/550?random=${index + 1}`;
+        }
         img.alt = `Imagen ${index + 1}`;
 
         const text = document.createElement("p");
@@ -94,14 +99,15 @@ function cargarGaleria() {
 
         // Resaltar solo "Directory"
         if (palabra === "Directory") {
-            imgContainer.classList.add("highlighted-button");
-            imgContainer.addEventListener("click", () => {
-                window.location.href = "../week2/directory.html";  // Ajusta la ruta si es necesario
+            imgContainer.classList.add("highlighted-button", "directory-trigger");
+            imgContainer.addEventListener("click", (e) => {
+                e.preventDefault();
+                const event = new Event('openDirectory');
+                document.dispatchEvent(event);
             });
         }
     });
 }
-
 // Cargar carrusel de imágenes aleatorias
 function cargarCarrusel() {
     const carouselImages = document.getElementById("carousel-images");
