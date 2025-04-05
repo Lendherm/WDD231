@@ -1,0 +1,60 @@
+{
+    "pointsOfInterest": [
+      {
+        "id": 1,
+        "name": "Palacio de Bellas Artes",
+        "address": "Av. Juárez S/N, Centro Histórico, CDMX",
+        "description": "Iconic cultural center with art exhibitions and performances.",
+        "image": "images/Bellas artes (300-200).webp"
+      },
+      {
+        "id": 2,
+        "name": "Zócalo",
+        "address": "Plaza de la Constitución S/N, Centro Histórico, CDMX",
+        "description": "Main square of Mexico City and one of the largest public plazas in the world.",
+        "image": "images/zocalo (300-200).webp"
+      },
+      {
+        "id": 3,
+        "name": "Castillo de Chapultepec",
+        "address": "Bosque de Chapultepec I Secc, CDMX",
+        "description": "Historic castle on Chapultepec Hill with panoramic city views.",
+        "image": "images/CastilloChapultepec (300-200).webp"
+      },
+      {
+        "id": 4,
+        "name": "Coyoacán",
+        "address": "Coyoacán, CDMX",
+        "description": "Bohemian neighborhood with colorful buildings and Frida Kahlo Museum.",
+        "image": "images/alcaldia-coyoacan (300-200).webp"
+      },
+      {
+        "id": 5,
+        "name": "Basílica de Guadalupe",
+        "address": "Plaza de las Américas 1, Villa de Guadalupe, CDMX",
+        "description": "Important Catholic pilgrimage site dedicated to Our Lady of Guadalupe.",
+        "image": "images/basilica-guadalupe (300-200).webp"
+      },
+      {
+        "id": 6,
+        "name": "Xochimilco",
+        "address": "Xochimilco, CDMX",
+        "description": "Famous for its canals and colorful trajineras (boats).",
+        "image": "images/xochimilco (300-200).webp"
+      },
+      {
+        "id": 7,
+        "name": "Torre Latinoamericana",
+        "address": "Eje Central Lázaro Cárdenas 2, Centro Histórico, CDMX",
+        "description": "Skyscraper with observation deck offering 360° city views.",
+        "image": "images/torre-latinoamericana (300-200).webp"
+      },
+      {
+        "id": 8,
+        "name": "Museo Nacional de Antropología",
+        "address": "Av. Paseo de la Reforma s/n, Polanco, CDMX",
+        "description": "World-class museum showcasing Mexico's pre-Columbian heritage.",
+        "image": "images/museo-nacional-de-antropologia- (300-200).webp"
+      }
+    ]
+  }

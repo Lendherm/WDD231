@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Mexico City | Chamber of Commerce</title>
+    <link rel="stylesheet" href="./styles/chamber-site.css">
+    <link rel="stylesheet" href="./styles/discover.css">
+    <script src="./script/discover.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <!-- Same header as index.html -->
+        <div class="container">
+            <div class="menu-icon" id="menu-toggle">
+                <span class="menu-icon-symbol">&#9776;</span>
+                <span class="menu-icon-text">Menú</span>
+            </div>
+
+            <div class="anniversary">
+                <div class="anniversary-title">Cumplimos</div>
+                <div class="anniversary-year">150 años</div>
+                <div class="anniversary-text">de unir, servir y representar</div>
+            </div>
+
+            <div class="logo">
+                <img src="./images/favicon.ico" alt="Logo Cámara de Comercio">
+            </div>
+
+            <a href="#" class="affiliate-button">QUIERO AFILIARME</a>
+        </div>
+    </header>
+
+    <!-- Side menu (same as index.html) -->
+    <div class="overlay" id="overlay"></div>
+    <div class="side-menu" id="side-menu">
+        <!-- Same side menu content as index.html -->
+    </div>
+
+    <main class="discover-main">
+        <section class="visitor-info">
+            <h2>Welcome to Mexico City!</h2>
+            <div class="visit-message"></div>
+            <p>Days since last visit: <span id="days-since-visit">0</span></p>
+        </section>
+
+        <section class="discover-grid" id="discover-grid">
+            <h2 class="visually-hidden">Points of Interest in Mexico City</h2>
+            <!-- Cards will be inserted here by JavaScript -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Luis Emilio Nathanael De la Rosa Meneses, Mexico, wdd231</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+
+</html>
