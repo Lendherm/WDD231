@@ -1,0 +1,16 @@
+[
+    {
+        "id": "art-therapy",
+        "title": "Arte Terapia Comunitaria",
+        "shortDescription": "Talleres de expresión artística para el manejo emocional en comunidades vulnerables.",
+        "longDescription": "Programa semanal que utiliza diversas técnicas artísticas para ayudar a niños y adultos a procesar emociones difíciles...",
+        "image": "https://www.freedomaddiction.ca/wp-content/uploads/2021/03/featured-image-730x412-5.jpg"
+    },
+    {
+        "id": "youth-orchestra",
+        "title": "Orquesta Juvenil Comunitaria",
+        "shortDescription": "Formación musical gratuita para jóvenes de escasos recursos.",
+        "longDescription": "Proyecto que brinda educación musical de calidad e instrumentos a jóvenes talentosos...",
+        "image": "https://amarillosymphony.org/web/wp-content/uploads/2024/08/154A1213-copy-scaled.jpg"
+    }
+]

@@ -1,0 +1,83 @@
+/* Events section */
+.events-section {
+    padding: 4rem 0;
+    background-color: var(--light-color);
+    margin: 3rem 0;
+  }
+  
+  .events-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+  }
+  
+  .events-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .event-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--secondary-color);
+  }
+  
+  .event-date {
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .event-title {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .event-location {
+    color: #666;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .event-location::before {
+    content: "📍";
+    margin-right: 0.5rem;
+  }
+  
+  .event-register-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .event-register-btn:hover {
+    background-color: #003366;
+  }
+  
+  .view-all-events {
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .view-all-events:hover {
+    color: var(--accent-color);
+  }

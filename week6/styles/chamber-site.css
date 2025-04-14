@@ -367,18 +367,15 @@ ul.social-icons li a:hover {
 
 /* Estilos para resaltar el botón de "Directory" */
 .highlighted-button {
-    position: relative;
-    z-index: 10; /* Para que esté por encima */
-    transform: scale(1.1); /* Hace que sea más grande */
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); /* Efecto de brillo dorado */
-    border: 2px solid gold; /* Borde dorado */
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .highlighted-button:hover {
-    transform: scale(1.15); /* Se agranda más al pasar el mouse */
-    box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
+
 
 
 /* Asegúrate de que el formulario esté en una capa superior */

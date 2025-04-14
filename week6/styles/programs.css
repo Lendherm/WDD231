@@ -1,0 +1,69 @@
+/* Programs section */
+.programs-section {
+    padding: 4rem 0;
+  }
+  
+  .programs-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+  }
+  
+  .programs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .program-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  
+  .program-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .program-content {
+    padding: 1.5rem;
+  }
+  
+  .program-title {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .program-description {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+  }
+  
+  .program-details-btn {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .program-details-btn:hover {
+    background-color: #e6b800;
+  }

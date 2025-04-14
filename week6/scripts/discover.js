@@ -6,26 +6,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mostrar el menú y el overlay
     menuToggle.addEventListener('click', () => {
-        sideMenu.classList.toggle('open'); // Abre o cierra el menú
-        overlay.classList.toggle('active'); // Muestra u oculta el overlay
+        sideMenu.classList.toggle('open');
+        overlay.classList.toggle('active');
     });
 
     // Cerrar el menú al hacer clic en el overlay
     overlay.addEventListener('click', () => {
-        sideMenu.classList.remove('open'); // Cierra el menú
-        overlay.classList.remove('active'); // Oculta el overlay
+        sideMenu.classList.remove('open');
+        overlay.classList.remove('active');
     });
 
     // Cerrar el menú al hacer clic en un enlace dentro del menú
     document.querySelectorAll('.side-menu a').forEach(link => {
         link.addEventListener('click', () => {
-            sideMenu.classList.remove('open'); // Cierra el menú
-            overlay.classList.remove('active'); // Oculta el overlay
+            sideMenu.classList.remove('open');
+            overlay.classList.remove('active');
         });
     });
 
     // Funcionalidad de carga perezosa y almacenamiento de última visita
-    mostrarMensajeVisita(); // Mostrar mensaje de última visita
+    mostrarMensajeVisita();
     cargarGaleria();
     cargarCarrusel();
     ajustarDisenoPantalla();
@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
 let currentIndex = 0; // Índice actual del carrusel
 
 // Mostrar mensaje sobre la última visita
-
 function mostrarMensajeVisita() {
     const lastVisit = localStorage.getItem('lastVisit');
     const currentVisit = Date.now();
@@ -64,75 +63,116 @@ function mostrarMensajeVisita() {
 // Cargar galería de imágenes con texto
 function cargarGaleria() {
     const gallery = document.getElementById("gallery");
-    const listaPalabras = [
-        "Directory",
-        "Capacitación",
-        "Sistema de Información",
-        "Servicio Legal",
-        "Agenda Empresarial",
-        "Servicios Turísticos",
-        "Comercio Internacional",
-        "Revista Digital",
-        "Clima"
+    const itemsGaleria = [
+        { 
+            texto: "Directory", 
+            tipo: "directory",
+            evento: 'openDirectory',
+            destacado: true
+        },
+        { 
+            texto: "Donaciones", 
+            tipo: "donacion",
+            evento: 'openDonationForm',
+            destacado: true
+        },
+        { 
+            texto: "Voluntariado", 
+            tipo: "voluntariado",
+            evento: 'openVolunteerForm',
+            destacado: true
+        },
+        { 
+            texto: "Capacitación", 
+            tipo: "capacitacion" 
+        },
+        { 
+            texto: "Sistema de Información", 
+            tipo: "sistema" 
+        },
+        { 
+            texto: "Servicio Legal", 
+            tipo: "legal" 
+        },
+        { 
+            texto: "Agenda Empresarial", 
+            tipo: "agenda" 
+        },
+        { 
+            texto: "Servicios Turísticos", 
+            tipo: "turismo" 
+        },
+        { 
+            texto: "Clima", 
+            tipo: "clima" 
+        }
     ];
 
-    listaPalabras.forEach((palabra, index) => {
-        const imgContainer = document.createElement("div");
-        imgContainer.classList.add("img-container");
+    // Generar IDs únicos para imágenes
+  // Generar IDs únicos para imágenes
+let imageIds = [];
+for (let i = 0; i < itemsGaleria.length; i++) {
+    let randomId;
+    do {
+        randomId = Math.floor(Math.random() * 1000);
+    } while (imageIds.includes(randomId));
+    imageIds.push(randomId);
+    
+    const item = itemsGaleria[i];
+    const imgContainer = document.createElement("div");
+    imgContainer.classList.add("img-container");
 
-        const img = document.createElement("img");
-        // Cambiar la fuente de la imagen solo para "Directory"
-        if (palabra === "Directory") {
-            img.src = "./images/directory.webp";
-        } else {
-            img.src = `https://picsum.photos/800/550?random=${index + 1}`;
-        }
-        img.alt = `Imagen ${index + 1}`;
+    // Crear elemento de imagen
+    const img = document.createElement("img");
+    img.src = `https://picsum.photos/800/550?random=${randomId}`;
+    img.alt = `Imagen ${item.texto}`;
+    img.loading = "lazy";
 
-        const text = document.createElement("p");
-        text.textContent = palabra;
-        text.classList.add("gallery-text");
+    // Crear texto
+    const text = document.createElement("p");
+    text.textContent = item.texto;
+    text.classList.add("gallery-text");
 
-        imgContainer.appendChild(img);
-        imgContainer.appendChild(text);
-        gallery.appendChild(imgContainer);
+    imgContainer.appendChild(img);
+    imgContainer.appendChild(text);
 
-        // Resaltar solo "Directory"
-        if (palabra === "Directory") {
-            imgContainer.classList.add("highlighted-button", "directory-trigger");
-            imgContainer.addEventListener("click", (e) => {
-                e.preventDefault();
-                const event = new Event('openDirectory');
-                document.dispatchEvent(event);
-            });
-        }
-    });
+    // Configurar eventos para items destacados
+    if (item.destacado) {
+        imgContainer.classList.add("highlighted-button", `${item.tipo}-trigger`);
+        imgContainer.addEventListener("click", (e) => {
+            e.preventDefault();
+            const event = new Event(item.evento);
+            document.dispatchEvent(event);
+        });
+    }
+
+    gallery.appendChild(imgContainer);
 }
+
+}
+
 // Cargar carrusel de imágenes aleatorias
 function cargarCarrusel() {
     const carouselImages = document.getElementById("carousel-images");
-    const totalImages = 10; // Número de imágenes en el carrusel
+    const totalImages = 10;
 
-    // Aseguramos que las imágenes del carrusel y la galería no se repitan
     let carouselImageIds = [];
-
     for (let i = 1; i <= totalImages; i++) {
         let randomImageId;
-        // Evitar que el ID de la imagen se repita
         do {
-            randomImageId = Math.floor(Math.random() * 1000); // Un ID aleatorio único
+            randomImageId = Math.floor(Math.random() * 1000);
         } while (carouselImageIds.includes(randomImageId));
         carouselImageIds.push(randomImageId);
 
         const img = document.createElement("img");
-        const uniqueParam = new Date().getTime(); // Añadir un parámetro único basado en el tiempo
-        img.setAttribute("data-src", `https://picsum.photos/800/550?random=${randomImageId}&t=${uniqueParam}`); // Imagen aleatoria de picsum.photos
+        const uniqueParam = new Date().getTime();
+        img.setAttribute("data-src", `https://picsum.photos/800/550?random=${randomImageId}&t=${uniqueParam}`);
         img.classList.add("carousel-image", "lazy");
         img.alt = `Carrusel Imagen Aleatoria ${i}`;
         carouselImages.appendChild(img);
     }
 
-    lazyLoad(); // Llamar la función de carga perezosa
+    lazyLoad();
 
     const prevButton = document.getElementById("prev");
     const nextButton = document.getElementById("next");
@@ -158,48 +198,26 @@ function cargarCarrusel() {
 function actualizarCarrusel() {
     const carouselImages = document.getElementById("carousel-images");
     const images = carouselImages.querySelectorAll(".carousel-image");
-    const width = images[0].clientWidth; // Obtiene el ancho de una imagen
-    const offset = currentIndex * width; // Calcula el desplazamiento
+    const width = images[0].clientWidth;
+    const offset = currentIndex * width;
 
-    // Ajusta la posición del contenedor de imágenes
     carouselImages.style.transform = `translateX(-${offset}px)`;
     carouselImages.style.transition = "transform 0.5s ease-in-out";
 }
 
-// Implementar carga perezosa de imágenes con logging en la consola
+// Implementar carga perezosa de imágenes
 function lazyLoad() {
     const lazyImages = document.querySelectorAll(".lazy");
 
-    if (lazyImages.length === 0) {
-        console.log("No se encontraron imágenes con la clase 'lazy'.");
-    }
+    if (lazyImages.length === 0) return;
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
-                
-                // Añadir un identificador único para cada imagen
-                const imgNumber = img.alt.match(/\d+/)[0];
-
-                // Registrar el tiempo antes de cargar la imagen
-                const startTime = performance.now();
-
-                // Cargar la imagen
                 img.src = img.dataset.src;
                 img.classList.remove("lazy");
-
-                // Mostrar información del network en la consola cuando la imagen comienza a cargarse
-                console.log(`Imagen solicitada: ${img.src}`);
-
-                // Cuando la imagen se haya cargado completamente, medir el tiempo
-                img.onload = () => {
-                    const endTime = performance.now();
-                    const loadTime = (endTime - startTime).toFixed(2); // Tiempo en milisegundos
-                    console.log(`Imagen ${imgNumber} cargada en ${loadTime} ms`);
-                };
-
-                observer.unobserve(img); // Deja de observar la imagen una vez cargada
+                observer.unobserve(img);
             }
         });
     }, {
@@ -207,15 +225,15 @@ function lazyLoad() {
         threshold: 0.1,
     });
 
-    lazyImages.forEach(img => observer.observe(img)); // Observa las imágenes
+    lazyImages.forEach(img => observer.observe(img));
 }
 
 // Ajustar el diseño para pantallas grandes
 function ajustarDisenoPantalla() {
     const sideMenu = document.getElementById('side-menu');
     if (window.innerWidth > 768) {
-        sideMenu.classList.remove('open'); // Cierra el menú en pantallas grandes
+        sideMenu.classList.remove('open');
         const overlay = document.getElementById('overlay');
-        overlay.classList.remove('active'); // Oculta el overlay
+        overlay.classList.remove('active');
     }
 }

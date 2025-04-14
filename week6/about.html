@@ -1,0 +1,86 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes Somos | Arte y Construcción Social</title>
+
+    <!-- CSS -->
+<link rel="stylesheet" href="./styles/arte-social.css"> <!-- Estilos principales -->
+<link rel="stylesheet" href="./styles/testimonials.css"> <!-- Estilos para testimonios -->
+<link rel="stylesheet" href="./styles/programs.css"> <!-- Estilos para programas -->
+<link rel="stylesheet" href="./styles/events.css"> <!-- Estilos para eventos -->
+<link rel="stylesheet" href="./styles/donation-form.css"> <!-- Estilos para formulario de donación -->
+<link rel="stylesheet" href="./styles/volunteer-form.css"> <!-- Estilos para formulario de voluntariado -->
+     <!-- Estilos de Bootstrap -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+     <link rel="stylesheet" href="./styles/chamber-site.css">
+     <link rel="stylesheet" href="styles/directory-modal.css">
+     <link rel="stylesheet" href="./styles/calendar-grafic-menu.css">
+     <link rel="stylesheet" href="./styles/affiliate-form.css">
+     <link rel="stylesheet" href="./styles/normalize.css">
+     <link rel="stylesheet" href="./styles/affiliate-form-banco.css">
+     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+     <script src="./scripts/getDates.js"></script>
+     <script src="./scripts/affiliate-form.js"></script>
+     <script src="./scripts/weather.js"></script>
+     <script src="./scripts/calendar-grafic-menu.js"></script>
+     <script src="./scripts/affiliate-form-banco.js"></script>
+     <script src="./scripts/discover.js"></script>
+     <script src="./scripts/directory.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <!-- Ícono del menú hamburguesa -->
+            <div class="menu-icon" id="menu-toggle">
+                <span class="menu-icon-symbol">&#9776;</span>
+                <span class="menu-icon-text">Menú</span>
+            </div>
+
+            <!-- Aniversario -->
+            <div class="anniversary">
+                <div class="anniversary-title">Cumplimos</div>
+                <div class="anniversary-year">150 años</div>
+                <div class="anniversary-text">de unir, servir y representar</div>
+            </div>
+
+            <!-- Logo -->
+            <div class="logo">
+                <img src="./images/lanetalogo.webp" alt="Logo Cámara de Comercio">
+            </div>
+
+            <!-- Botón "Afiliarme" -->
+            <a href="#" class="affiliate-button">QUIERO AFILIARME</a>
+        </div>
+    </header>
+
+
+    <main class="about-page">
+        <section class="history-section">
+            <h1>Nuestra Historia</h1>
+            <div class="timeline" id="history-timeline"></div>
+        </section>
+
+        <section class="team-section">
+            <h2>Nuestro Equipo</h2>
+            <div class="team-grid" id="team-container"></div>
+        </section>
+
+        <section class="partners-section">
+            <h2>Aliados Estratégicos</h2>
+            <div class="partners-carousel" id="partners-container"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Luis Emilio Nathanael De la Rosa Meneses, Mexico, wdd231</p>
+        <p id="lastModified"></p>
+    </footer>
+
+    <script src="./scripts/about-manager.js"></script>
+    <script src="./scripts/arte-social.js"></script>
+</body>
+</html>
