@@ -1,0 +1,235 @@
+/* Reset básico */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Full width header */
+.site-header {
+    background-color: #002a5c;
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Main container */
+.main-container {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+}
+
+/* Columns layout */
+.left-column, .center-column {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    min-width: 300px;
+}
+
+.right-column {
+    flex: 2;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Menu icon */
+.menu-icon {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+
+.menu-icon-symbol {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+.menu-icon-text {
+    font-size: 16px;
+}
+
+/* Logo */
+.logo h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+    margin: 0;
+}
+
+/* Mission banner */
+.mission-banner {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 42, 92, 0.8);
+}
+
+.mission-text {
+    color: #ffcc00;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Action button */
+.action-button {
+    background-color: #ffcc00;
+    color: #002a5c;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.action-button:hover {
+    background-color: #e6b800;
+}
+
+/* Sections styling */
+section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Color swatches */
+.color-swatch {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+}
+
+.color-swatch.dark-blue {
+    background-color: #002a5c;
+}
+
+.color-swatch.gold {
+    background-color: #ffcc00;
+}
+
+.color-swatch.white {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+}
+
+.color-swatch.light-gray {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #002a5c;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    background-color: #002a5c;
+    color: white;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Design Preview section */
+.design-preview {
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.preview-image-container {
+    height: calc(100% - 40px);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+.preview-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Responsive design */
+/* Tablet (768px-1024px) - 2 columns */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .main-container {
+        flex-wrap: wrap;
+    }
+    
+    .left-column, .center-column {
+        flex: 1 1 50%;
+        min-width: 0;
+    }
+    
+    .right-column {
+        flex: 1 1 100%;
+        order: 3;
+        margin-top: 20px;
+    }
+    
+    .preview-image-container {
+        height: 400px;
+    }
+}
+
+/* Mobile (less than 768px) - 1 column */
+@media (max-width: 767px) {
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .container_header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .left-column, .center-column, .right-column {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .preview-image-container {
+        height: auto;
+        min-height: 300px;
+    }
+}

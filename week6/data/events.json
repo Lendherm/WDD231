@@ -3,7 +3,18 @@
         "id": "festival-2023",
         "title": "Festival de Arte Comunitario 2023",
         "date": "2023-11-15",
+        "time": "10:00",
         "location": "Plaza de Santo Domingo, CDMX",
-        "description": "Exhibición anual de los trabajos realizados en nuestros talleres comunitarios."
+        "description": "Exhibición anual de los trabajos realizados en nuestros talleres comunitarios.",
+        "image": "https://www.mexicodestinos.com/blog/wp-content/uploads/2017/02/7-festivales-en-mexico-que-son-buen-pretexto-para-viajar.jpg"
+    },
+    {
+        "id": "taller-pintura",
+        "title": "Taller de Pintura para Niños",
+        "date": "2023-12-05",
+        "time": "15:00",
+        "location": "Centro Cultural del Arte, CDMX",
+        "description": "Taller gratuito para niños de 6 a 12 años. Materiales incluidos.",
+        "image": "https://www.lebrija.es/export/sites/lebrija/.galleries/imagenes-noticias/Taller-Dibujo-y-Pintura-22-2.jpg"
     }
 ]
