@@ -75,49 +75,66 @@ body.dark-mode a:hover {
     color: black;
 }
 
-/* Header Styles */
+
+/* Header Styles - VERSIÓN MEJORADA */
+/* ===== HEADER STYLES - VERSIÓN CORREGIDA ===== */
 header {
     display: flex;
-    flex-direction: column; /* Apila los elementos verticalmente */
-    align-items: center; /* Centra los elementos horizontalmente */
-    justify-content: center; /* Centra el contenido verticalmente */
-    padding: 40px 20px;
+    flex-direction: column;
+    padding: 20px;
     background-color: #284c71;
     color: #fff;
     position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 
-
-.divheader {
+.header-top {
     display: flex;
-    background-color: #284c71; 
-    flex-direction: row; /* Organiza la imagen y el texto horizontalmente */
-    align-items: center; /* Centra la imagen y el texto verticalmente */
-    justify-content: center;
-    margin-bottom: 20px; /* Espacio entre la imagen y la barra de navegación */
-    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
-    padding: 10px 0; /* Espaciado adecuado */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0; /* Elimina todo el padding interno */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 0; /* Elimina el margen inferior */
+    position: relative;
 }
 
+.logo-title {
+   display: flex;
+    align-items: center;
+    gap: 20px; /* Más espacio entre logo y texto */
+    flex: 1; /* Ocupa todo el espacio disponible */
+    min-width: 0; /* Permite que se ajuste correctamente */
+    padding: 5px 0; /* Pequeño padding interno si es necesario */
+}
+
+.logo-title img {
+    width: 200px; /* Tamaño aumentado significativamente */
+   
 
 
+}
 
-
-
-.divheader span {
-    font-size: 2.5em;
+.logo-title span {
+    font-size: 1.8rem;
     font-weight: bold;
-    text-align: left; /* Alinea el texto a la izquierda */
+    text-align: left;
 }
 
-/* Navigation Styles */
+.header-bottom {
+    display: flex;
+    justify-content: center;
+}
+
+/* Navigation Styles - MANTENER ESTOS ESTILOS */
 header nav {
     width: 100%;
 }
 
 nav ul {
     display: flex;
-    justify-content: center; /* Centra los elementos del menú */
+    justify-content: center;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -131,40 +148,120 @@ nav ul li {
 
 /* Estilo para los enlaces del menú */
 nav ul li a {
-    background-color: #444; /* Fondo negro para todos los enlaces */
-    color: white;  /* Color del texto blanco */
-    padding: 10px 20px; /* Espaciado dentro del enlace */
-    display: block; /* Hace que el enlace ocupe todo el espacio del li */
-    text-decoration: none; /* Quita el subrayado */
-    font-size: 1.2em; /* Tamaño de la fuente */
-    border-radius: 5px; /* Redondea las esquinas */
+    background-color: #444;
+    color: white;
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
 }
 
 /* Estilo para el enlace con la clase active */
 nav ul li a.active {
-    background-color: #f0a500; /* Fondo amarillo para el enlace activo */
-    color: black;  /* Color del texto negro */
+    background-color: #f0a500;
+    color: black;
 }
 
 /* Efecto al pasar el ratón sobre los enlaces */
 nav ul li a:hover {
-    background-color: #f0a500;  /* Fondo gris oscuro cuando el ratón pasa sobre el enlace */
+    background-color: #f0a500;
 }
 
 /* Menu Hamburguesa */
 .menu-toggle {
-    display: none;  /* Inicialmente escondemos el botón hamburguesa */
+    display: none;
     flex-direction: column;
     cursor: pointer;
-    padding: 10px;
-    margin-top: 10px;
+    padding: 5px;
 }
 
 .menu-toggle .bar {
     width: 25px;
     height: 3px;
     background-color: white;
-    margin: 4px 0;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Ajustes para el modo oscuro */
+body.dark-mode header {
+    background-color: #1a365d;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .logo-title {
+        flex-direction: column;
+    }
+    
+    .logo-title span {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    #mode {
+        position: static;
+        margin-top: 10px;
+        order: 3;
+    }
+    
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+    
+    /* Ocultar el menú horizontal en pantallas pequeñas */
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Mostrar el menú cuando está activo */
+    header nav ul.show {
+        display: flex;
+    }
+}
+
+/* Para desktop */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+    
+    header nav ul {
+        display: flex;
+    }
+}
+
+
+/* Cambiar color de logos en el footer - FUNCIONA CON CUALQUIER SVG */
+.social-links img {
+    filter: brightness(0) saturate(100%) invert(16%) sepia(99%) saturate(6054%) hue-rotate(358deg) brightness(95%) contrast(112%);
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover img {
+    filter: brightness(0) saturate(100%) invert(30%) sepia(98%) saturate(1260%) hue-rotate(3deg) brightness(103%) contrast(105%);
+    transform: scale(1.15);
+}
+
+/* Modo oscuro */
+body.dark-mode .social-links img {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(289deg) brightness(102%) contrast(101%);
+}
+
+body.dark-mode .social-links a:hover img {
+    filter: brightness(0) saturate(100%) invert(81%) sepia(10%) saturate(2045%) hue-rotate(359deg) brightness(102%) contrast(105%);
 }
 
 /* Estilos generales para las tarjetas */

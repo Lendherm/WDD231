@@ -8,10 +8,12 @@
         content="WDD 231 - Web Frontend Development, Luis Emilio Nathanael De la rosa Meneses, course assignment portal, responsive design, frontend development.">
     <meta name="author" content="Luis Emilio Nathanael De la rosa Meneses">
     <title>Luis De la Rosa - WDD 231 - Web Frontend Development</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="styles/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <script src="scripts/getDates.js" defer></script>
+    <script src="scripts/course.js" defer></script>
 
     <!-- Open Graph Metadata -->
     <meta property="og:title" content="Luis De la Rosa - WDD 231 - Web Frontend Development">
@@ -24,84 +26,87 @@
 
 <body>
     <!-- Header Section -->
-    <header>
-        <div class="divheader">
-            <span>WDD 231: Web Frontend Development - Luis Emilio Nathanael De la rosa Meneses</span>
+    <main>
+<header>
+    <div class="header-top">
+        <div class="logo-title">
+            <img src="images/Lendherm.svg" alt="Lendherm logo" width="50" height="50">
+            <span>Luis De la Rosa - WDD 231</span>
         </div>
-
-        <!-- Menú hamburguesa -->
-        <div id="menu-toggle" class="menu-toggle">
+        <div id="mode" class="mode-toggle">🕶️</div>
+        
+        <!-- Menú hamburguesa (solo visible en móviles) -->
+        <div class="menu-toggle">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
-
+    </div>
+    
+    <div class="header-bottom">
         <nav class="header_nav">
-            <ul>
-                <li><a href="#">Home</a></li>
+            <ul id="primaryNav">
+                <li><a href="#" class="active">Home</a></li>
                 <li><a href="/WDD231/chamber/index.html">Chamber</a></li>
-                <li><a href="#">GitHub Profile</a></li>
-                <li><a href="https://www.linkedin.com/in/nathanael-de-la-rosa-november3a21/" class="active">LinkedIn</a>
+                <li><a href="/WDD231/final/index.html">Final</a></li>
+                <li><a href="https://www.linkedin.com/in/nathanael-de-la-rosa-november3a21/">LinkedIn</a></li>
             </ul>
         </nav>
-
-        <!-- Botón para cambiar de modo -->
-        <div id="mode" class="mode-toggle">
-            🕶️
-        </div>
-    </header>
-
-    <main>
+    </div>
+</header>
         <h1>Home</h1>
+        
         <!-- Sección para las actividades de aprendizaje y la información -->
         <div class="main-content">
             <section class="card card-profile">
-                <h2>Course Work</h2>
-                <ul>
-                    <li>.</li>
-                    <li>.</li>
-                    <li>.</li>
-                </ul>
-
+                <h2>About me</h2>
+                <p>Motivated and detail-oriented Helpdesk Analyst with strong experience in IT support,
+                    troubleshooting, and incident escalation for critical hardware, software, and platforms. Skilled in
+                    identifying and resolving technical issues, collaborating with cross-functional teams, and providing
+                    guidance to less experienced colleagues. Educational background includes applied technology, web
+                    development, and IT support, complemented by certifications in AWS Cloud Practitioner and AWS
+                    Solutions Architect – Associate. Passionate about continuous learning, problem-solving, and
+                    leveraging technology to improve organizational efficiency. Seeking to contribute technical
+                    expertise
+                    and customer-focused support in a dynamic IT environment while pursuing long-term growth in
+                    cloud computing and software development.</p>
             </section>
 
             <section class="card card-information">
-                <h2>State of Mexico, Mexico</h2>
-                <img src="images/indians-entertaining-pyramid-of-the-sun-piramide-del-sol-teotihuacan-archaeological-site.webp"
-                    alt="indians-entertaining-pyramid-of-the-sun-piramide-del-sol-teotihuacan-archaeological-site">
-                <p>Pyramid of the sun</p>
+                <h2>Student Photo</h2>
+                <img src="images/profile2.jpg" alt="Luis Emilio Nathanael De la rosa Meneses" width="200" height="200">
+                <p>Lendherm</p>
             </section>
-
-
         </div>
-        <section class="card card-boton">
-            <h2>Web and Computer Programming Certicate</h2>
-            <ul>
-                <li><a href="#">All</a></li>
-                <li><a href="#">CSE</a></li>
-                <li><a href="#">WDD</a></li>
-            </ul>
-
-            <hr>
-            <ul>
-                <li><a href="#">CSE 110</a></li>
-                <li><a href="#">WDD 130</a></li>
-                <li><a href="#">CSE 111</a></li>
-                <li><a href="#">CSE 210</a></li>
-                <li><a href="#">WDD 131</a></li>
-                <li><a href="#">WDD 231</a></li>
-
-            </ul>
+        
+        <section class="card card-certificate">
+            <h2>Web and Computer Programming Certificate</h2>
+            <div class="filter-buttons">
+                <button id="allBtn" class="filter-btn active">All Courses</button>
+                <button id="cseBtn" class="filter-btn">CSE Courses</button>
+                <button id="wddBtn" class="filter-btn">WDD Courses</button>
+            </div>
+            <p>Total Credits: <span id="totalCredits">0</span></p>
+            <div id="courseList" class="course-grid"></div>
         </section>
     </main>
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; <span id="currentYear"></span> Luis Emilio Nathanael De la rosa Meneses, Mexico, wdd231</p>
+        <div class="social-links">
+            <a href="https://github.com/lendherm" aria-label="GitHub">
+                <img src="images/github.svg" alt="GitHub logo" width="30" height="30">
+            </a>
+            <a href="https://www.linkedin.com/in/nathanael-de-la-rosa-november3a21/" aria-label="LinkedIn">
+                <img src="images/linkedin.svg" alt="LinkedIn logo" width="30" height="30">
+            </a>
+            <a href="https://www.facebook.com/luisemilionathanael.delarosameneses" aria-label="Facebook">
+                <img src="images/facebook.svg" alt="Facebook logo" width="30" height="30">
+            </a>
+        </div>
+        <p>&copy; <span id="currentYear"></span> Luis Emilio Nathanael De la rosa Meneses, Mexico</p>
         <p id="lastModified"></p>
     </footer>
-
-
 </body>
 
 </html>

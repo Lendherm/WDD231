@@ -1,0 +1,25 @@
+/* styles/larger.css */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
+    }
+    
+    .menu-toggle {
+        display: none;
+    }
+    
+    nav ul {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .main-content {
+        grid-template-columns: 2fr 1fr;
+    }
+    
+    .course-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
