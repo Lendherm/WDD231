@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art and Social Construction - Site Plan</title>
+    <title>Municipal Bidding Monitor</title>
     <link rel="stylesheet" href="./styles/site-plan.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@700&display=swap"
         rel="stylesheet">
     <link rel="icon" href="./photos/favicon.ico" type="image/x-icon">
-
 </head>
 
 <body>
@@ -21,120 +20,79 @@
                 <span class="menu-icon-text">Menu</span>
             </div>
             <div class="logo">
-                <h1>Art and Social Construction</h1>
+                <h1>Municipal Bidding Monitor</h1>
             </div>
-            <a href="#" class="action-button">Donate</a>
+            <a href="#" class="action-button">Register / Login</a>
         </div>
         <div class="mission-banner">
-            <p class="mission-text">Building a more just society through art and social development</p>
+            <p class="mission-text">Centralize all municipal bidding pages across Mexico in one place</p>
         </div>
     </header>
 
     <!-- Three-Column Layout -->
     <main class="main-container">
+        <!-- Left Column -->
         <div class="left-column">
-            <!-- About Our Organization -->
             <section class="site-info">
-                <h2>About Our Organization</h2>
-                <div>
-                    <section class="site-purpose">
-                        <h3>Description</h3>
-                        <p>The name represents a non-profit organization dedicated to assisting vulnerable
-                            communities, social development, and cultural promotion. Its name reflects its
-                            commitment to art as a tool for social transformation and its focus on building a more
-                            just society.</p>
-                        <p><strong>Domain availability:</strong> arteyconstruccionsocial.org (pending verification)
-                        </p>
-                    </section>
-                </div>
+                <h2>About the Application</h2>
+                <p>This web app allows monitoring changes on municipal bidding pages and sending email alerts.</p>
             </section>
 
-            <!-- Site Purpose -->
-            <section class="site-purpose">
-                <h3>Site Purpose</h3>
-                <p>The website will serve as an information and engagement platform to:</p>
+            <section class="user-scenarios">
+                <h2>Target Users</h2>
                 <ul>
-                    <li>Educate visitors about the organization's mission and programs</li>
-                    <li>Provide legal, educational, and social service resources</li>
-                    <li>Promote cultural and artistic events</li>
-                    <li>Encourage volunteering and community involvement</li>
-                    <li>Offer secure options for donations and project funding</li>
-                    <li>Share beneficiary stories to generate connection and inspiration</li>
+                    <li>Small businesses and suppliers</li>
+                    <li>Journalists and researchers</li>
+                    <li>Citizens interested in transparency</li>
                 </ul>
             </section>
 
-            <!-- User Scenarios -->
-            <section class="user-scenarios">
-                <h2>User Scenarios</h2>
-                <p>Key questions site visitors might have:</p>
+            <section class="planned-features">
+                <h2>Main Features</h2>
                 <ul>
-                    <li>How can I become a volunteer to help with community projects?</li>
-                    <li>What are the upcoming cultural events and how can I attend?</li>
-                    <li>How can I make a donation and how will the money raised be used?</li>
-                    <li>Where can I find legal and educational resources for communities in vulnerable situations?
-                    </li>
+                    <li>Municipality list with portal links</li>
+                    <li>Change detection and update tracking</li>
+                    <li>Daily feed of today's changes</li>
+                    <li>Search and filter by state, municipality, or type</li>
+                    <li>User registration and login</li>
+                    <li>Email notifications</li>
+                    <li>Favorites / subscriptions</li>
+                    <li>Change history log</li>
+                    <li>Responsive design</li>
+                    <li>Error handling for unavailable municipal sites</li>
                 </ul>
             </section>
         </div>
 
         <!-- Center Column -->
         <div class="center-column">
-            <!-- Color Scheme -->
-            <section class="color-schema color-scheme-section">
-                <h2>Color Scheme</h2>
-                <p>Colors used:</p>
-                <ul>
-                    <li>
-                        <span class="color-swatch dark-blue"></span>
-                        Dark Blue (#002a5c) - Used in headers and footers to give a professional appearance
-                    </li>
-                    <li>
-                        <span class="color-swatch gold"></span>
-                        Gold (#ffcc00) - Used in action buttons such as "Donate" or "Join"
-                    </li>
-                    <li>
-                        <span class="color-swatch white"></span>
-                        White (#ffffff) - Used in backgrounds to improve readability
-                    </li>
-                    <li>
-                        <span class="color-swatch light-gray"></span>
-                        Light Gray (#f4f4f4) - For informational sections
-                    </li>
-                </ul>
+            <section class="municipality-list">
+                <h2>Monitored Municipalities</h2>
+                <input type="text" id="search" placeholder="Search municipality...">
+                <div id="municipality-container">
+                    <div class="municipality-card">
+                        <h3>Example Municipality</h3>
+                        <p>Last update: <span class="last-update">10/01/2025</span></p>
+                        <button class="subscribe-btn">Follow</button>
+                    </div>
+                </div>
             </section>
 
-            <!-- Typography -->
-            <section class="typography">
-                <h2>Typography</h2>
-                <p><strong>Poppins:</strong> For the overall content of the site, providing a modern and legible
-                    appearance.</p>
-                <p><strong>Roboto (bold):</strong> Used in titles and headings for greater visual impact.</p>
-            </section>
-
-            <!-- Planned Features -->
-            <section class="planned-features">
-                <h2>Planned Features</h2>
+            <section class="daily-changes">
+                <h2>Today's Updates</h2>
                 <ul>
-                    <li><strong>Homepage:</strong> General information about the organization, its mission, and
-                        recent updates</li>
-                    <li><strong>About Us:</strong> History, team, and organizational structure</li>
-                    <li><strong>Programs and Services:</strong> Detailed description of social assistance projects
-                    </li>
-                    <li><strong>Events and News:</strong> Calendar of activities and featured publications</li>
-                    <li><strong>Get Involved:</strong> Ways to participate, volunteer, and collaborate</li>
-                    <li><strong>Donate:</strong> Secure donation options and transparency reports</li>
-                    <li><strong>Testimonials:</strong> Stories of impact shared by beneficiaries</li>
-                    <li><strong>Contact:</strong> Contact form and social media links</li>
+                    <li>Municipality A: new bid published</li>
+                    <li>Municipality B: results updated</li>
                 </ul>
             </section>
         </div>
 
-        <!-- Right Column - Design Preview -->
+        <!-- Right Column -->
         <div class="right-column">
             <section class="design-preview">
                 <h2>Design Preview</h2>
                 <div class="preview-image-container">
-                    <img src="./photos/Plan.jpg" alt="Website design preview">
+                    <img src="./images/Plan.jpg" alt="Website design preview">
                 </div>
             </section>
         </div>
@@ -142,12 +100,11 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; <span id="currentYear"></span> Art and Social Construction. All rights reserved.</p>
-        <p>Non-profit organization dedicated to social development and cultural promotion.</p>
+        <p>&copy; <span id="currentYear"></span> Municipal Bidding Monitor. All rights reserved.</p>
+        <p>Organization for transparency and tracking municipal bids.</p>
     </footer>
 
     <script>
-        // Current year for footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
