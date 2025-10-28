@@ -1,15 +1,15 @@
-/* chamber/styles/directory.css - VERSIÓN OPTIMIZADA CON DOM REDUCIDO */
-/* Directory specific styles - Menos elementos DOM */
+/* chamber/styles/directory.css - VERSIÓN OPTIMIZADA FINAL */
+/* Directory specific styles - Mejor contraste y CLS */
 
 .directory-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--space-md);
-    /* Reservar espacio para prevenir CLS */
+    /* FIX CLS - Altura reservada */
     min-height: 600px;
 }
 
-/* Grid View - VERSIÓN SIMPLIFICADA */
+/* Grid View */
 .directory-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -37,7 +37,7 @@
     border-color: var(--primary-blue);
 }
 
-/* Logo placeholder simplificado - MENOS ELEMENTOS */
+/* Logo placeholder */
 .logo-placeholder {
     width: 60px;
     height: 60px;
@@ -64,7 +64,7 @@
     justify-content: center;
 }
 
-/* Contenedor simplificado - MENOS ELEMENTOS */
+/* Contenedor simplificado */
 .member-details {
     margin-bottom: var(--space-sm);
     display: flex;
@@ -78,6 +78,8 @@
     color: var(--text-light);
     font-size: var(--font-size-sm);
     line-height: 1.4;
+    /* MEJOR CONTRASTE */
+    font-weight: 500;
 }
 
 .member-website {
@@ -102,7 +104,7 @@
     font-size: var(--font-size-sm);
 }
 
-/* Membership Level Badges */
+/* Membership Level Badges - MEJOR CONTRASTE */
 .membership-level {
     display: inline-block;
     padding: var(--space-xs) var(--space-md);
@@ -114,6 +116,8 @@
     align-self: flex-start;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    /* MEJOR CONTRASTE */
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
 .membership-bronze {
@@ -123,14 +127,18 @@
 .membership-silver {
     background: linear-gradient(135deg, #c0c0c0, #a8a8a8);
     color: var(--text-dark);
+    /* MEJOR CONTRASTE */
+    text-shadow: 0 1px 1px rgba(255,255,255,0.5);
 }
 
 .membership-gold {
     background: linear-gradient(135deg, #ffd700, #e6c200);
     color: var(--text-dark);
+    /* MEJOR CONTRASTE */
+    text-shadow: 0 1px 1px rgba(255,255,255,0.5);
 }
 
-/* List View - VERSIÓN SIMPLIFICADA */
+/* List View */
 .directory-list {
     display: flex;
     flex-direction: column;
@@ -177,6 +185,8 @@
     color: var(--text-light);
     font-size: var(--font-size-sm);
     min-width: 120px;
+    /* MEJOR CONTRASTE */
+    font-weight: 500;
 }
 
 .member-list-item .member-website {
@@ -221,9 +231,11 @@
 .empty-state p {
     color: var(--text-light);
     margin-bottom: var(--space-lg);
+    /* MEJOR CONTRASTE */
+    font-weight: 500;
 }
 
-/* Responsive Design for Directory */
+/* Responsive Design */
 @media (max-width: 1024px) {
     .directory-grid {
         grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -305,6 +317,11 @@
     
     .member-card:hover {
         border-color: currentColor;
+    }
+    
+    .member-address,
+    .member-phone {
+        font-weight: bold;
     }
 }
 

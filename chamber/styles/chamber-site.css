@@ -1,20 +1,20 @@
-/* chamber/styles/chamber-site.css - VERSIÓN OPTIMIZADA CON FIX CLS */
+/* chamber/styles/chamber-site.css - VERSIÓN OPTIMIZADA FINAL */
 /* Custom CSS without any frameworks */
 
 /* ===== VARIABLES ===== */
 :root {
-    /* Colors */
+    /* Colors - MEJORADO CONTRASTE */
     --primary-blue: #002a5c;
-    --dark-blue: #0f295b;
-    --accent-purple: #7027e0;
-    --accent-red: #ec2f4b;
-    --accent-gold: #ffd700;
+    --dark-blue: #0a1f3d;
+    --accent-purple: #5a1fb8;
+    --accent-red: #c82346;
+    --accent-gold: #d4af37;
     --white: #ffffff;
-    --light-gray: #f4f4f4;
-    --medium-gray: #e0e0e0;
-    --dark-gray: #333333;
+    --light-gray: #f8f9fa;
+    --medium-gray: #dee2e6;
+    --dark-gray: #212529;
     --text-dark: #2c3e50;
-    --text-light: #7f8c8d;
+    --text-light: #5a6c7d; /* MEJOR CONTRASTE */
     
     /* Typography */
     --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -74,7 +74,7 @@ body {
 main {
     flex: 1;
     padding: var(--space-xl) 0;
-    /* Reservar espacio para prevenir CLS */
+    /* FIX CLS CRÍTICO - Altura mínima reservada */
     min-height: 70vh;
 }
 
@@ -282,6 +282,8 @@ main {
     font-size: var(--font-size-lg);
     color: var(--text-light);
     line-height: 1.5;
+    /* FIX CONTRASTE - Mejor legibilidad */
+    font-weight: 500;
 }
 
 /* ===== DIRECTORY CONTROLS ===== */
@@ -344,7 +346,7 @@ main {
     text-align: center;
     padding: var(--space-2xl);
     color: var(--text-light);
-    /* Altura fija para prevenir CLS */
+    /* FIX CLS - Altura fija */
     min-height: 400px;
     display: flex;
     flex-direction: column;
@@ -375,7 +377,7 @@ main {
     box-shadow: var(--shadow-sm);
     max-width: 500px;
     margin: 0 auto;
-    /* Altura fija para prevenir CLS */
+    /* FIX CLS - Altura fija */
     min-height: 300px;
     display: flex;
     flex-direction: column;
@@ -409,14 +411,14 @@ main {
     background: var(--dark-blue);
 }
 
-/* ===== FOOTER FIX PARA CLS ===== */
+/* ===== FOOTER FIX CLS DEFINITIVO ===== */
 .site-footer {
     background: var(--dark-blue);
     color: var(--white);
     padding: var(--space-2xl) 0 var(--space-xl);
     margin-top: auto;
-    /* FIX CRÍTICO PARA CLS - Altura fija */
-    min-height: 320px;
+    /* FIX CLS CRÍTICO - Altura fija exacta */
+    height: 320px;
     position: relative;
 }
 
@@ -427,13 +429,12 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--space-2xl);
-    /* FIX CRÍTICO - Posicionamiento absoluto */
+    /* FIX CLS CRÍTICO - Posición absoluta */
     position: absolute;
     width: 100%;
     top: 0;
     left: 0;
-    right: 0;
-    transform: translateY(0);
+    transform: translateY(var(--space-2xl));
 }
 
 .footer-section h3 {
@@ -554,13 +555,18 @@ main {
     }
     
     .site-footer {
-        min-height: auto;
+        height: auto;
         position: static;
+        padding: var(--space-xl) 0;
     }
     
     .loading-state,
     .error-state {
         min-height: 300px;
+    }
+    
+    main {
+        min-height: 60vh;
     }
 }
 
@@ -594,6 +600,10 @@ main {
     .error-state {
         min-height: 250px;
         padding: var(--space-xl);
+    }
+    
+    main {
+        min-height: 50vh;
     }
 }
 
