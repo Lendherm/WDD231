@@ -11,17 +11,21 @@
     <!-- Social Media Meta Tags -->
     <meta property="og:title" content="Cámara de Comercio - Directorio de Miembros">
     <meta property="og:description" content="Explore nuestro directorio de empresas miembros de la Cámara de Comercio. Conecte con negocios locales y encuentre oportunidades comerciales.">
-    <meta property="og:image" content="./images/chamber-logo.png">
+    <meta property="og:image" content="./images/lanetalogo-optimized.webp">
     <meta property="og:url" content="https://lendherm.github.io/wdd231/chamber/directory.html">
     <meta property="og:type" content="website">
     
     <!-- Favicon -->
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
     
+    <!-- Preload critical resources -->
+    <link rel="preload" href="./styles/chamber-site.css" as="style">
+    <link rel="preload" href="./styles/normalize.css" as="style">
+    
     <!-- Styles -->
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/chamber-site.css">
-    <link rel="stylesheet" href="./styles/directory.css">
+    <link rel="stylesheet" href="./styles/directory.css" media="print" onload="this.media='all'">
     
     <!-- Scripts -->
     <script src="./scripts/getdates.js" defer></script>
@@ -49,7 +53,10 @@
 
             <!-- Logo -->
             <div class="logo">
-                <img src="./images/lanetalogo.webp" alt="Cámara de Comercio - Uniendo negocios, creando oportunidades" width="160" height="55">
+                <img src="./images/lanetalogo-optimized.webp" 
+                     alt="Cámara de Comercio - Uniendo negocios, creando oportunidades" 
+                     width="160" height="55"
+                     loading="eager">
             </div>
 
             <!-- Affiliate Button -->

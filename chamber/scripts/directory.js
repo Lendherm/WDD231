@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Load members from JSON - FIXED PATH
+    // Load members from JSON - RUTA CORREGIDA
     async function loadMembers() {
         try {
-            // Use the correct path - adjust if needed based on your file structure
+            // Ruta corregida - usa ruta relativa correcta
             const response = await fetch('./data/members.json');
             
             if (!response.ok) {
