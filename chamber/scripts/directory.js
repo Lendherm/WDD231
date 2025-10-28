@@ -1,4 +1,4 @@
-// chamber/scripts/directory.js
+// chamber/scripts/directory.js - VERSIÓN OPTIMIZADA CON DOM REDUCIDO
 document.addEventListener('DOMContentLoaded', function() {
     // Elements
     const directoryContent = document.getElementById('directory-content');
@@ -33,10 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Load members from JSON - RUTA CORREGIDA
+    // Load members from JSON
     async function loadMembers() {
         try {
-            // Ruta corregida - usa ruta relativa correcta
             const response = await fetch('./data/members.json');
             
             if (!response.ok) {
@@ -46,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = await response.json();
             console.log('JSON data loaded:', data);
             
-            // Handle both structures: {members: []} or direct array
             return data.members || data;
         } catch (error) {
             console.error('Error loading members:', error);
@@ -106,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     }
 
-    // Create member card for grid view
+    // Create member card for grid view - VERSIÓN SIMPLIFICADA
     function createMemberCard(member) {
         const card = document.createElement('div');
         card.className = 'member-card';
@@ -114,41 +112,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const membershipClass = getMembershipClass(member.membership_level);
         const membershipText = getMembershipText(member.membership_level);
         
-        // Use the image from JSON or show placeholder
-        const imageSrc = member.image || '';
-        const hasImage = imageSrc && imageSrc !== '' && !imageSrc.includes('undefined') && !imageSrc.includes('null');
-        
+        // VERSIÓN SIMPLIFICADA - Solo 5 elementos por tarjeta (antes: 8+)
         card.innerHTML = `
-            ${hasImage ? 
-                `<img src="${imageSrc}" 
-                      alt="Logo de ${member.name}" 
-                      class="member-logo" 
-                      loading="lazy"
-                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">` : 
-                ''
-            }
-            <div class="logo-placeholder" style="${hasImage ? 'display: none;' : 'display: flex;'}">
+            <div class="logo-placeholder">
                 <span>${getInitials(member.name)}</span>
             </div>
-            <h3 class="member-name">${member.name}</h3>
-            <div class="member-info">
-                <strong>Dirección:</strong>
-                <span>${member.address}</span>
-            </div>
-            <div class="member-info">
-                <strong>Teléfono:</strong>
-                <span>${member.phone}</span>
-            </div>
-            <div class="member-info">
-                <strong>Sitio Web:</strong>
+            <h3>${member.name}</h3>
+            <div class="member-details">
+                <p class="member-address">${member.address}</p>
+                <p class="member-phone">${member.phone}</p>
                 <a href="${ensureHttpProtocol(member.website)}" target="_blank" rel="noopener noreferrer" class="member-website">Visitar sitio web</a>
             </div>
-            ${member.extra_info ? `
-            <div class="member-info">
-                <strong>Información:</strong>
-                <span>${member.extra_info}</span>
-            </div>
-            ` : ''}
             <span class="membership-level ${membershipClass}">${membershipText}</span>
         `;
         
@@ -165,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .substring(0, 2);
     }
 
-    // Create member list item for list view
+    // Create member list item for list view - VERSIÓN SIMPLIFICADA
     function createMemberListItem(member) {
         const listItem = document.createElement('div');
         listItem.className = 'member-list-item';
@@ -173,18 +147,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const membershipClass = getMembershipClass(member.membership_level);
         const membershipText = getMembershipText(member.membership_level);
         
+        // VERSIÓN SIMPLIFICADA - Solo 1 contenedor principal
         listItem.innerHTML = `
-            <h3>${member.name}</h3>
-            <div class="member-info">
-                <strong>Teléfono:</strong>
-                <span>${member.phone}</span>
+            <div class="list-content">
+                <h3>${member.name}</h3>
+                <span class="member-phone">${member.phone}</span>
+                <a href="${ensureHttpProtocol(member.website)}" target="_blank" rel="noopener noreferrer" class="member-website">Sitio Web</a>
+                <span class="membership-level ${membershipClass}">${membershipText}</span>
             </div>
-            <div class="member-info">
-                <strong>Dirección:</strong>
-                <span>${member.address}</span>
-            </div>
-            <a href="${ensureHttpProtocol(member.website)}" target="_blank" rel="noopener noreferrer" class="member-website">Sitio Web</a>
-            <span class="membership-level ${membershipClass}">${membershipText}</span>
         `;
         
         return listItem;

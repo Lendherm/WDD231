@@ -1,4 +1,4 @@
-/* chamber/styles/chamber-site.css - VERSIÓN OPTIMIZADA */
+/* chamber/styles/chamber-site.css - VERSIÓN OPTIMIZADA CON FIX CLS */
 /* Custom CSS without any frameworks */
 
 /* ===== VARIABLES ===== */
@@ -74,6 +74,8 @@ body {
 main {
     flex: 1;
     padding: var(--space-xl) 0;
+    /* Reservar espacio para prevenir CLS */
+    min-height: 70vh;
 }
 
 /* ===== ACCESSIBILITY ===== */
@@ -342,6 +344,12 @@ main {
     text-align: center;
     padding: var(--space-2xl);
     color: var(--text-light);
+    /* Altura fija para prevenir CLS */
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .loading-spinner {
@@ -367,6 +375,11 @@ main {
     box-shadow: var(--shadow-sm);
     max-width: 500px;
     margin: 0 auto;
+    /* Altura fija para prevenir CLS */
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .error-icon {
@@ -396,12 +409,15 @@ main {
     background: var(--dark-blue);
 }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER FIX PARA CLS ===== */
 .site-footer {
     background: var(--dark-blue);
     color: var(--white);
     padding: var(--space-2xl) 0 var(--space-xl);
     margin-top: auto;
+    /* FIX CRÍTICO PARA CLS - Altura fija */
+    min-height: 320px;
+    position: relative;
 }
 
 .footer-container {
@@ -411,6 +427,13 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--space-2xl);
+    /* FIX CRÍTICO - Posicionamiento absoluto */
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(0);
 }
 
 .footer-section h3 {
@@ -490,7 +513,7 @@ main {
         min-width: 120px;
     }
     
-    /* Mobile Navigation - VERSIÓN UNIFICADA */
+    /* Mobile Navigation */
     .nav-list {
         display: none;
         flex-direction: column;
@@ -526,6 +549,18 @@ main {
     .footer-container {
         grid-template-columns: 1fr;
         gap: var(--space-xl);
+        position: static;
+        transform: none;
+    }
+    
+    .site-footer {
+        min-height: auto;
+        position: static;
+    }
+    
+    .loading-state,
+    .error-state {
+        min-height: 300px;
     }
 }
 
@@ -553,6 +588,12 @@ main {
     .view-btn {
         padding: var(--space-xs) var(--space-sm);
         font-size: var(--font-size-xs);
+    }
+    
+    .loading-state,
+    .error-state {
+        min-height: 250px;
+        padding: var(--space-xl);
     }
 }
 

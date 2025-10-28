@@ -1,16 +1,18 @@
-/* chamber/styles/directory.css - VERSIÓN OPTIMIZADA */
-/* Directory specific styles */
+/* chamber/styles/directory.css - VERSIÓN OPTIMIZADA CON DOM REDUCIDO */
+/* Directory specific styles - Menos elementos DOM */
 
 .directory-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--space-md);
+    /* Reservar espacio para prevenir CLS */
+    min-height: 600px;
 }
 
-/* Grid View */
+/* Grid View - VERSIÓN SIMPLIFICADA */
 .directory-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: var(--space-lg);
     margin-bottom: var(--space-2xl);
 }
@@ -35,72 +37,22 @@
     border-color: var(--primary-blue);
 }
 
-/* Logo Styles with CSS Fallback */
-.member-logo {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin: 0 auto var(--space-md);
-    border-radius: var(--radius-md);
-    background: var(--light-gray);
-    padding: var(--space-sm);
-    /* CSS Fallback properties */
-    font-family: var(--font-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-light);
-    font-size: var(--font-size-xs);
-    font-weight: bold;
-    text-align: center;
-    position: relative;
-}
-
-/* Logo placeholder styles */
+/* Logo placeholder simplificado - MENOS ELEMENTOS */
 .logo-placeholder {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background: linear-gradient(135deg, var(--medium-gray) 0%, var(--light-gray) 100%);
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto var(--space-md);
-    border: 2px dashed var(--text-light);
     color: var(--text-light);
     font-weight: bold;
     font-size: var(--font-size-sm);
 }
 
-/* Style for when image fails to load */
-.member-logo:not([src]),
-.member-logo[src=""],
-.member-logo[src*="undefined"],
-.member-logo[src*="null"] {
-    background: linear-gradient(135deg, var(--medium-gray) 0%, var(--light-gray) 100%);
-    border: 2px dashed var(--text-light);
-}
-
-.member-logo:not([src])::after,
-.member-logo[src=""]::after,
-.member-logo[src*="undefined"]::after,
-.member-logo[src*="null"]::after {
-    content: "LOGO";
-    color: var(--text-light);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Ensure the image doesn't show when src is invalid */
-.member-logo[src=""],
-.member-logo[src*="undefined"],
-.member-logo[src*="null"] {
-    background-image: none !important;
-}
-
-.member-card .member-name {
+.member-card h3 {
     color: var(--primary-blue);
     margin-bottom: var(--space-md);
     font-size: var(--font-size-lg);
@@ -112,20 +64,17 @@
     justify-content: center;
 }
 
-.member-info {
+/* Contenedor simplificado - MENOS ELEMENTOS */
+.member-details {
     margin-bottom: var(--space-sm);
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
+    flex: 1;
 }
 
-.member-info strong {
-    color: var(--text-dark);
-    font-weight: 600;
-    font-size: var(--font-size-sm);
-}
-
-.member-info span {
+.member-address,
+.member-phone {
     color: var(--text-light);
     font-size: var(--font-size-sm);
     line-height: 1.4;
@@ -140,6 +89,7 @@
     font-weight: 600;
     margin-top: var(--space-sm);
     transition: color var(--transition-normal);
+    font-size: var(--font-size-sm);
 }
 
 .member-website:hover {
@@ -152,7 +102,7 @@
     font-size: var(--font-size-sm);
 }
 
-/* Membership Level Badges - VERSIÓN UNIFICADA */
+/* Membership Level Badges */
 .membership-level {
     display: inline-block;
     padding: var(--space-xs) var(--space-md);
@@ -180,7 +130,7 @@
     color: var(--text-dark);
 }
 
-/* List View */
+/* List View - VERSIÓN SIMPLIFICADA */
 .directory-list {
     display: flex;
     flex-direction: column;
@@ -189,16 +139,15 @@
 }
 
 .member-list-item {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr auto;
-    gap: var(--space-lg);
+    display: flex;
     align-items: center;
-    padding: var(--space-lg);
+    padding: var(--space-md) var(--space-lg);
     background: var(--white);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-normal);
     border: 1px solid var(--medium-gray);
+    gap: var(--space-lg);
 }
 
 .member-list-item:hover {
@@ -206,31 +155,42 @@
     border-color: var(--primary-blue);
 }
 
+.list-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    width: 100%;
+    flex-wrap: wrap;
+}
+
 .member-list-item h3 {
     color: var(--primary-blue);
     font-size: var(--font-size-base);
     margin: 0;
+    flex: 2;
+    min-width: 200px;
 }
 
-.member-list-item .member-info {
+.member-list-item .member-phone {
+    flex: 1;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.member-list-item .member-logo {
-    display: none;
+    color: var(--text-light);
+    font-size: var(--font-size-sm);
+    min-width: 120px;
 }
 
 .member-list-item .member-website {
     margin: 0;
+    flex: 1;
+    min-width: 100px;
 }
 
 .member-list-item .membership-level {
     margin: 0;
     font-size: var(--font-size-xs);
-    padding: 2px var(--space-sm);
+    padding: 4px var(--space-sm);
+    min-width: 80px;
+    text-align: center;
 }
 
 /* Empty State */
@@ -240,6 +200,11 @@
     background: var(--white);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .empty-state-icon {
@@ -261,7 +226,7 @@
 /* Responsive Design for Directory */
 @media (max-width: 1024px) {
     .directory-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
         gap: var(--space-md);
     }
 }
@@ -273,46 +238,62 @@
     }
     
     .member-list-item {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         gap: var(--space-md);
         text-align: center;
     }
     
-    .member-list-item .member-info {
-        align-items: center;
+    .list-content {
+        flex-direction: column;
+        gap: var(--space-md);
+        text-align: center;
+    }
+    
+    .member-list-item h3,
+    .member-list-item .member-phone,
+    .member-list-item .member-website,
+    .member-list-item .membership-level {
+        flex: none;
+        min-width: auto;
+        width: 100%;
     }
     
     .member-card {
         padding: var(--space-md);
     }
     
-    .member-logo {
-        width: 60px;
-        height: 60px;
+    .logo-placeholder {
+        width: 50px;
+        height: 50px;
     }
     
-    .logo-placeholder {
-        width: 60px;
-        height: 60px;
+    .directory-content {
+        min-height: 500px;
     }
 }
 
 @media (max-width: 480px) {
     .directory-content {
         padding: 0 var(--space-sm);
+        min-height: 400px;
     }
     
     .member-card {
         padding: var(--space-md);
     }
     
-    .member-card .member-name {
+    .member-card h3 {
         font-size: var(--font-size-base);
     }
     
-    .member-info strong,
-    .member-info span {
+    .member-address,
+    .member-phone {
         font-size: var(--font-size-sm);
+    }
+    
+    .empty-state {
+        min-height: 300px;
+        padding: var(--space-xl);
     }
 }
 
@@ -324,13 +305,6 @@
     
     .member-card:hover {
         border-color: currentColor;
-    }
-    
-    .member-logo:not([src])::after,
-    .member-logo[src=""]::after,
-    .member-logo[src*="undefined"]::after,
-    .member-logo[src*="null"]::after {
-        color: currentColor;
     }
 }
 
