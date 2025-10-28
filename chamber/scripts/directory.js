@@ -17,8 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the directory
     async function initDirectory() {
         try {
+            console.log('Starting directory initialization...');
             showLoadingState();
+            
             members = await loadMembers();
+            console.log('Members loaded successfully:', members.length);
+            
             hideLoadingState();
             updateMemberCount();
             displayMembers();
@@ -29,14 +33,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Load members from JSON
+    // Load members from JSON - FIXED PATH
     async function loadMembers() {
         try {
+            // Use the correct path - adjust if needed based on your file structure
             const response = await fetch('./data/members.json');
+            
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
+            
             const data = await response.json();
+            console.log('JSON data loaded:', data);
+            
+            // Handle both structures: {members: []} or direct array
             return data.members || data;
         } catch (error) {
             console.error('Error loading members:', error);
@@ -46,6 +56,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Display members based on current view
     function displayMembers() {
+        if (!directoryContent) {
+            console.error('Directory content element not found');
+            return;
+        }
+        
         directoryContent.innerHTML = '';
         
         if (members.length === 0) {
@@ -93,58 +108,62 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create member card for grid view
     function createMemberCard(member) {
-    const card = document.createElement('div');
-    card.className = 'member-card';
-    
-    const membershipClass = getMembershipClass(member.membership_level);
-    const membershipText = getMembershipText(member.membership_level);
-    
-    // Usar la imagen del JSON o placeholder
-    const imageSrc = member.image || '';
-    
-    card.innerHTML = `
-        <img src="${imageSrc}" 
-             alt="Logo de ${member.name}" 
-             class="member-logo" 
-             loading="lazy"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-        <div class="logo-placeholder" style="display: none;">
-            <span>${getInitials(member.name)}</span>
-        </div>
-        <h2 class="member-name">${member.name}</h2>
-        <div class="member-info">
-            <strong>Dirección:</strong>
-            <span>${member.address}</span>
-        </div>
-        <div class="member-info">
-            <strong>Teléfono:</strong>
-            <span>${member.phone}</span>
-        </div>
-        <div class="member-info">
-            <strong>Sitio Web:</strong>
-            <a href="${ensureHttpProtocol(member.website)}" target="_blank" rel="noopener noreferrer" class="member-website" aria-label="Visitar sitio web de ${member.name}">Visitar sitio web</a>
-        </div>
-        ${member.extra_info ? `
-        <div class="member-info">
-            <strong>Información:</strong>
-            <span>${member.extra_info}</span>
-        </div>
-        ` : ''}
-        <span class="membership-level ${membershipClass}">${membershipText}</span>
-    `;
-    
-    return card;
-}
+        const card = document.createElement('div');
+        card.className = 'member-card';
+        
+        const membershipClass = getMembershipClass(member.membership_level);
+        const membershipText = getMembershipText(member.membership_level);
+        
+        // Use the image from JSON or show placeholder
+        const imageSrc = member.image || '';
+        const hasImage = imageSrc && imageSrc !== '' && !imageSrc.includes('undefined') && !imageSrc.includes('null');
+        
+        card.innerHTML = `
+            ${hasImage ? 
+                `<img src="${imageSrc}" 
+                      alt="Logo de ${member.name}" 
+                      class="member-logo" 
+                      loading="lazy"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">` : 
+                ''
+            }
+            <div class="logo-placeholder" style="${hasImage ? 'display: none;' : 'display: flex;'}">
+                <span>${getInitials(member.name)}</span>
+            </div>
+            <h3 class="member-name">${member.name}</h3>
+            <div class="member-info">
+                <strong>Dirección:</strong>
+                <span>${member.address}</span>
+            </div>
+            <div class="member-info">
+                <strong>Teléfono:</strong>
+                <span>${member.phone}</span>
+            </div>
+            <div class="member-info">
+                <strong>Sitio Web:</strong>
+                <a href="${ensureHttpProtocol(member.website)}" target="_blank" rel="noopener noreferrer" class="member-website">Visitar sitio web</a>
+            </div>
+            ${member.extra_info ? `
+            <div class="member-info">
+                <strong>Información:</strong>
+                <span>${member.extra_info}</span>
+            </div>
+            ` : ''}
+            <span class="membership-level ${membershipClass}">${membershipText}</span>
+        `;
+        
+        return card;
+    }
 
-// Función auxiliar para obtener iniciales
-function getInitials(companyName) {
-    return companyName
-        .split(' ')
-        .map(word => word.charAt(0))
-        .join('')
-        .toUpperCase()
-        .substring(0, 2);
-}
+    // Helper function to get initials
+    function getInitials(companyName) {
+        return companyName
+            .split(' ')
+            .map(word => word.charAt(0))
+            .join('')
+            .toUpperCase()
+            .substring(0, 2);
+    }
 
     // Create member list item for list view
     function createMemberListItem(member) {
@@ -173,7 +192,7 @@ function getInitials(companyName) {
 
     // Ensure website URLs have proper protocol
     function ensureHttpProtocol(url) {
-        if (!url) return '#';
+        if (!url || url === '#') return '#';
         if (url.startsWith('http://') || url.startsWith('https://')) {
             return url;
         }
@@ -256,34 +275,24 @@ function getInitials(companyName) {
         // Mobile menu toggle
         if (menuToggle && mainNavigation) {
             menuToggle.addEventListener('click', function() {
-                const navList = mainNavigation.querySelector('.nav-list');
-                if (navList) {
-                    navList.classList.toggle('show');
-                    menuToggle.setAttribute('aria-expanded', 
-                        navList.classList.contains('show').toString()
-                    );
-                }
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', (!isExpanded).toString());
+                mainNavigation.classList.toggle('nav-open');
             });
 
             // Close menu when clicking outside
             document.addEventListener('click', function(event) {
                 if (!mainNavigation.contains(event.target) && !menuToggle.contains(event.target)) {
-                    const navList = mainNavigation.querySelector('.nav-list');
-                    if (navList && navList.classList.contains('show')) {
-                        navList.classList.remove('show');
-                        menuToggle.setAttribute('aria-expanded', 'false');
-                    }
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    mainNavigation.classList.remove('nav-open');
                 }
             });
 
             // Close menu on escape key
             document.addEventListener('keydown', function(event) {
                 if (event.key === 'Escape') {
-                    const navList = mainNavigation.querySelector('.nav-list');
-                    if (navList && navList.classList.contains('show')) {
-                        navList.classList.remove('show');
-                        menuToggle.setAttribute('aria-expanded', 'false');
-                    }
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    mainNavigation.classList.remove('nav-open');
                 }
             });
         }
@@ -303,12 +312,11 @@ function getInitials(companyName) {
         window.addEventListener('resize', function() {
             // Close mobile menu on resize to larger screen
             if (window.innerWidth > 768) {
-                const navList = mainNavigation?.querySelector('.nav-list');
-                if (navList && navList.classList.contains('show')) {
-                    navList.classList.remove('show');
-                    if (menuToggle) {
-                        menuToggle.setAttribute('aria-expanded', 'false');
-                    }
+                if (menuToggle) {
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+                if (mainNavigation) {
+                    mainNavigation.classList.remove('nav-open');
                 }
             }
         });
@@ -331,15 +339,4 @@ function getInitials(companyName) {
 
     // Initialize the directory
     initDirectory();
-});
-
-// Add this to handle image loading errors globally
-document.addEventListener('DOMContentLoaded', function() {
-    // Global error handler for images
-    document.addEventListener('error', function(e) {
-        if (e.target.tagName === 'IMG' && e.target.classList.contains('member-logo')) {
-            // Let CSS handle the placeholder, but ensure no broken image icon
-            e.target.style.display = 'block';
-        }
-    }, true);
 });
