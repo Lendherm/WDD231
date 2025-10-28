@@ -1,0 +1,361 @@
+/* =====================================================
+   CLS Prevention - Critical Layout Stability Rules
+   ===================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+/* Ensure images don't cause layout shifts */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0; /* Step 5: loading state */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* When fully loaded */
+body.loaded img {
+    opacity: 1;
+}
+
+/* Reserve space for dynamic content */
+#courseList {
+    min-height: 300px; /* Step 5 */
+}
+
+/* Smooth transitions for dynamic content */
+.course-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Filter buttons transitions */
+.filter-btn {
+    transition: all 0.3s ease;
+}
+
+/* Reserve space for critical elements */
+.header-top,
+.header-bottom,
+.main-content,
+.course-grid,
+.card {
+    contain: layout style paint;
+}
+
+/* Aspect ratio containers */
+.logo-title img,
+.social-links img,
+.card-information img {
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+}
+
+/* Course grid stability */
+.course-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    min-height: 200px;
+}
+
+.course-card {
+    min-height: 150px;
+    contain: content;
+}
+
+/* Filter buttons stability */
+.filter-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 60px;
+}
+
+.filter-btn {
+    min-height: 44px;
+}
+
+/* Main content stability */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 400px;
+}
+
+/* Card stability */
+.card {
+    min-height: 200px;
+    overflow: hidden;
+}
+
+/* Header stability */
+.header-top {
+    min-height: 80px;
+    position: relative;
+}
+
+/* Footer stability */
+footer {
+    min-height: 150px;
+    position: relative;
+}
+
+/* =====================================================
+   Mobile First Styles
+   ===================================================== */
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: #284c71;
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-title img {
+    width: 50px;
+    height: 50px;
+}
+
+.logo-title span {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Mobile Navigation */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15px;
+}
+
+nav ul.show {
+    display: flex;
+}
+
+nav ul li {
+    text-align: center;
+}
+
+nav ul li a {
+    background-color: #444;
+    color: white;
+    padding: 12px 20px;
+    display: block;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+    margin: 2px 0;
+}
+
+nav ul li a.active {
+    background-color: #f0a500;
+    color: black;
+}
+
+nav ul li a:hover {
+    background-color: #f0a500;
+}
+
+/* Main content */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Cards */
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Course Grid */
+.course-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.course-card {
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.course-card.completed {
+    border-color: #4CAF50;
+    background-color: #e8f5e8;
+}
+
+.course-card h3 {
+    color: #284c71;
+    margin-bottom: 8px;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.filter-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #284c71;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: #f0a500;
+    color: black;
+}
+
+/* Status labels */
+.status {
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.completed-text {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.not-completed-text {
+    background-color: #ff9800;
+    color: white;
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #284c71;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-links a:hover img {
+    transform: scale(1.1);
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+body.dark-mode .card {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+#mode {
+    cursor: pointer;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+}
+
+/* =====================================================
+   Google Fonts & Typography Enhancements
+   ===================================================== */
+
+/* Google Fonts */
+body {
+    font-family: 'Roboto', 'Open Sans', 'Arial', sans-serif;
+}
+
+/* Profile image styling - moved from inline style */
+.profile-image {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+/* Additional styles for Google Fonts hierarchy */
+.card h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+
+.card p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}

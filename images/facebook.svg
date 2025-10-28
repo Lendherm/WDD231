@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="256" height="256" aria-label="Facebook">
+  <mask id="facebook-cutout">
+    <!-- Círculo blanco = visible -->
+    <circle cx="256" cy="256" r="224" fill="white"></circle>
+    <!-- "f" negro = recortado -->
+    <path d="M285 426.7V286h47.6l7.1-55.4H285v-35.4c0-16.1 4.5-27.2 27.7-27.2h29.6v-50.1c-5.1-.7-22.4-2.2-42.6-2.2-42.1 0-70.9 25.7-70.9 72.9v42h-47.6V286h47.6v140.7h56.2z" fill="black"></path>
+  </mask>
+  <!-- Círculo de color con recorte -->
+  <circle cx="256" cy="256" r="224" fill="currentColor" mask="url(#facebook-cutout)"></circle>
+</svg>

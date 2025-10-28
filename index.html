@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="WDD 231 - Web Frontend Development, Luis Emilio Nathanael De la rosa Meneses, course assignment portal, responsive design, frontend development.">
+    <meta name="author" content="Luis Emilio Nathanael De la rosa Meneses">
+    <title>Luis De la Rosa - WDD 231 - Web Frontend Development</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./styles/small.css">
+    <link rel="stylesheet" href="./styles/large.css" media="(min-width: 769px)">
+    
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    
+    <!-- Scripts with defer -->
+    <script src="./scripts/getdates.js" defer></script>
+    <script src="./scripts/course.js" defer></script>
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Luis De la Rosa - WDD 231 - Web Frontend Development">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://lendherm.github.io/wdd231/images/profile2.webp">
+    <meta property="og:url" content="https://lendherm.github.io/wdd231/">
+    <meta property="og:description"
+        content="Portal del curso WDD 231: Web Frontend Development con actividades, aprendizaje y proyectos de Luis Emilio Nathanael De la Rosa Meneses.">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-top">
+            <div class="logo-title">
+                <!-- Logo with explicit dimensions -->
+                <img src="./images/lendherm.svg" alt="Lendherm logo" width="50" height="50" loading="eager">
+                <span>Luis De la Rosa - WDD 231</span>
+            </div>
+            <div id="mode" class="mode-toggle">🕶️</div>
+            
+            <!-- Menú hamburguesa -->
+            <div class="menu-toggle" aria-label="Toggle navigation menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+        
+        <div class="header-bottom">
+            <nav class="header_nav" aria-label="Main navigation">
+                <ul id="primaryNav">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="./chamber/index.html">Chamber</a></li>
+                    <li><a href="./final/index.html">Final</a></li>
+                    <li><a href="https://www.linkedin.com/in/nathanael-de-la-rosa-november3a21/">LinkedIn</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <h1>Home</h1>
+        
+        <!-- Main content with stable layout -->
+        <div class="main-content">
+            <section class="card card-profile">
+                <h2>About me</h2>
+                <p>Motivated and detail-oriented Helpdesk Analyst with strong experience in IT support,
+                    troubleshooting, and incident escalation for critical hardware, software, and platforms. Skilled in
+                    identifying and resolving technical issues, collaborating with cross-functional teams, and providing
+                    guidance to less experienced colleagues. Educational background includes applied technology, web
+                    development, and IT support, complemented by certifications in AWS Cloud Practitioner and AWS
+                    Solutions Architect – Associate. Passionate about continuous learning, problem-solving, and
+                    leveraging technology to improve organizational efficiency. Seeking to contribute technical
+                    expertise
+                    and customer-focused support in a dynamic IT environment while pursuing long-term growth in
+                    cloud computing and software development.</p>
+            </section>
+
+            <section class="card card-information">
+                <h2>Student Photo</h2>
+                <!-- Profile image with explicit dimensions and lazy loading -->
+                <img src="./images/profile2.webp" 
+                     alt="Luis Emilio Nathanael De la rosa Meneses" 
+                     width="200" 
+                     height="200" 
+                     loading="lazy"
+                     class="profile-image">
+                <p>Lendherm</p>
+            </section>
+        </div>
+        
+        <section class="card card-certificate">
+            <h2>Web and Computer Programming Certificate</h2>
+            <div class="filter-buttons">
+                <button id="allBtn" class="filter-btn active">All Courses</button>
+                <button id="cseBtn" class="filter-btn">CSE Courses</button>
+                <button id="wddBtn" class="filter-btn">WDD Courses</button>
+            </div>
+            <p>Total Credits: <span id="totalCredits">0</span></p>
+            <div id="courseList" class="course-grid"></div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="social-links">
+            <!-- Social media icons with explicit dimensions -->
+            <a href="https://github.com/lendherm" aria-label="GitHub">
+                <img src="./images/github.svg" alt="GitHub logo" width="30" height="30" loading="lazy">
+            </a>
+            <a href="https://www.linkedin.com/in/nathanael-de-la-rosa-november3a21/" aria-label="LinkedIn">
+                <img src="./images/linkedin.svg" alt="LinkedIn logo" width="30" height="30" loading="lazy">
+            </a>
+            <a href="https://www.facebook.com/luisemilionathanael.delarosameneses" aria-label="Facebook">
+                <img src="./images/facebook.svg" alt="Facebook logo" width="30" height="30" loading="lazy">
+            </a>
+        </div>
+        <p>&copy; <span id="currentYear"></span> Luis Emilio Nathanael De la rosa Meneses, Mexico</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+
+</html>

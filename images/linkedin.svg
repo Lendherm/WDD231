@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="256" height="256" aria-label="LinkedIn">
+  <mask id="linkedin-cutout">
+    <!-- Fondo blanco = visible -->
+    <circle cx="256" cy="256" r="224" fill="white"></circle>
+    <!-- "in" negro = recortado -->
+    <path d="M176 352h-48V208h48v144zm-24-168c-16 0-28-11-28-27s12-27 28-27 28 11 28 27-12 27-28 27zm192 168h-48V288c0-16-6-32-24-32-14 0-22 10-25 20-1 3-1 7-1 11v65h-48V208h48v22c6-11 20-26 47-26 34 0 57 22 57 69v79z" fill="black"></path>
+  </mask>
+  <!-- Círculo relleno recortado -->
+  <circle cx="256" cy="256" r="224" fill="currentColor" mask="url(#linkedin-cutout)"></circle>
+</svg>

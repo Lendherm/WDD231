@@ -1,0 +1,67 @@
+/* styles/large.css - Desktop Styles */
+
+@media (min-width: 769px) {
+    /* Header Desktop */
+    .menu-toggle {
+        display: none;
+    }
+
+    nav ul {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 0;
+    }
+
+    nav ul li {
+        flex: 1;
+    }
+
+    nav ul li a {
+        margin: 0 2px;
+        font-size: 1.1em;
+    }
+
+    /* Main Content Desktop */
+    .main-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 25px;
+    }
+
+    /* Course Grid Desktop */
+    .course-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Filter Buttons Desktop */
+    .filter-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .filter-btn {
+        flex: 1;
+        max-width: 200px;
+    }
+
+    /* Header Layout */
+    .header-top {
+        flex-direction: row;
+    }
+
+    .logo-title span {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .course-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .logo-title img {
+        width: 60px;
+        height: 60px;
+    }
+}
