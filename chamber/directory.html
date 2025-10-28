@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamber of Commerce - Directory</title>
+    <meta name="description" content="Directory of chamber members with business information and contact details">
+    <meta name="author" content="Luis Emilio Nathanael De la Rosa Meneses">
+    
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="Chamber of Commerce - Directory">
+    <meta property="og:description" content="Directory of chamber members with business information and contact details">
+    <meta property="og:image" content="./images/chamber-logo.png">
+    <meta property="og:url" content="https://yourusername.github.io/wdd231/chamber/directory.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/chamber-site.css">
+    <link rel="stylesheet" href="./styles/directory.css">
+    
+    <!-- Scripts -->
+    <script src="./scripts/getdates.js" defer></script>
+    <script src="./scripts/directory.js" defer></script>
+    
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <!-- Menu Icon -->
+            <div class="menu-icon" id="menu-toggle">
+                <span class="menu-icon-symbol">&#9776;</span>
+                <span class="menu-icon-text">Menú</span>
+            </div>
+
+            <!-- Anniversary -->
+            <div class="anniversary">
+                <div class="anniversary-title">Cumplimos</div>
+                <div class="anniversary-year">150 años</div>
+                <div class="anniversary-text">de unir, servir y representar</div>
+            </div>
+
+            <!-- Logo -->
+            <div class="logo">
+                <img src="./images/lanetalogo.webp" alt="Logo Cámara de Comercio" width="150" height="50">
+            </div>
+
+            <!-- Affiliate Button -->
+            <a href="#" class="affiliate-button" id="affiliate-btn">QUIERO AFILIARME</a>
+        </div>
+    </header>
+
+    <!-- Menú Lateral -->
+    <div class="overlay" id="overlay"></div>
+    <div class="side-menu" id="side-menu">
+        <nav>
+            <h2>Menú</h2>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-arrow-right"></i> Inicio</a></li>
+                <li><a href="directory.html" class="active"><i class="fas fa-arrow-right"></i> Directorio</a></li>
+                <li><a href="join.html"><i class="fas fa-arrow-right"></i> Únete</a></li>
+                <li><a href="discover.html"><i class="fas fa-arrow-right"></i> Descubrir</a></li>
+                <li><a href="contact.html"><i class="fas fa-arrow-right"></i> Contacto</a></li>
+            </ul>
+
+            <div class="contact-info">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Paseo de la Reforma 42 Colonia Centro</p>
+                <p><i class="fas fa-phone"></i> 55 36-85-22-69</p>
+                <p><i class="fas fa-envelope"></i> primercontacto@ccmexico.com.mx</p>
+                <p><a href="#"><i class="fas fa-route"></i> ¿Cómo llegar?</a></p>
+            </div>
+
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="directory.html" class="active">Directorio</a></li>
+            <li><a href="join.html">Únete</a></li>
+            <li><a href="discover.html">Descubrir</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="directory-container">
+            <h1>Directorio de Miembros</h1>
+            
+            <!-- View Toggle -->
+            <div class="view-toggle">
+                <button id="grid-view-btn" class="view-btn active">Vista Grid</button>
+                <button id="list-view-btn" class="view-btn">Vista Lista</button>
+            </div>
+
+            <!-- Directory Content -->
+            <div id="directory-content" class="directory-grid">
+                <!-- Members will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Formulario de Afiliación -->
+    <div id="affiliate-form-container" class="hidden">
+        <!-- Contenido del formulario aquí -->
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Cámara de Comercio</h3>
+                <p>Paseo de la Reforma 42 Colonia Centro</p>
+                <p>Ciudad de México, C.P. 06040</p>
+                <p>Email: primercontacto@ccmexico.com.mx</p>
+                <p>Tel: 55 36-85-22-69</p>
+            </div>
+            <div class="development-info">
+                <p>&copy; <span id="currentYear"></span> Luis Emilio Nathanael De la Rosa Meneses</p>
+                <p>WDD 231 - Chamber of Commerce Project</p>
+                <p id="lastModified"></p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
