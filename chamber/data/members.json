@@ -1,11 +1,12 @@
-[
+{
+  "members": [
     {
       "name": "Tecnología Avanzada S.A.",
       "address": "Avenida Reforma 123, Ciudad de México, 01000",
       "phone": "+52 55 1234 5678",
       "website": "https://www.tecavanzada.com",
-      "image": "tecnologia-logo.png",
-      "membership_level": "Gold",
+      "image": "",
+      "membership_level": 3,
       "extra_info": "Empresa líder en desarrollo de software y soluciones tecnológicas."
     },
     {
@@ -13,8 +14,8 @@
       "address": "Calle Insurgentes 456, Monterrey, Nuevo León, 64000",
       "phone": "+52 81 2345 6789",
       "website": "https://www.consultoresglobales.com",
-      "image": "consultores-globales-logo.png",
-      "membership_level": "Silver",
+      "image": "",
+      "membership_level": 2,
       "extra_info": "Consultoría en estrategia de negocios y marketing digital."
     },
     {
@@ -22,8 +23,8 @@
       "address": "Paseo de la Reforma 789, Guadalajara, Jalisco, 45000",
       "phone": "+52 33 5678 1234",
       "website": "https://www.logisticaexpress.com",
-      "image": "logistica-logo.png",
-      "membership_level": "Bronze",
+      "image": "",
+      "membership_level": 1,
       "extra_info": "Expertos en transporte y logística nacional e internacional."
     },
     {
@@ -31,8 +32,8 @@
       "address": "Calle Oaxaca 101, Puebla, Puebla, 72000",
       "phone": "+52 22 3456 7890",
       "website": "https://www.ambientalinnovacion.com",
-      "image": "innovacion-logo.png",
-      "membership_level": "Gold",
+      "image": "",
+      "membership_level": 3,
       "extra_info": "Soluciones en sustentabilidad y gestión ambiental."
     },
     {
@@ -40,8 +41,8 @@
       "address": "Avenida Hidalgo 202, Mérida, Yucatán, 97000",
       "phone": "+52 999 8765 4321",
       "website": "https://www.larapida.com",
-      "image": "comercializadora-logo.png",
-      "membership_level": "Silver",
+      "image": "",
+      "membership_level": 2,
       "extra_info": "Distribución y venta de productos de consumo masivo."
     },
     {
@@ -49,8 +50,8 @@
       "address": "Avenida del Valle 303, Ciudad Juárez, Chihuahua, 32000",
       "phone": "+52 656 9876 5432",
       "website": "https://www.financierosglobales.com",
-      "image": "financieros-logo.png",
-      "membership_level": "Gold",
+      "image": "",
+      "membership_level": 3,
       "extra_info": "Asesoría financiera y de inversiones para empresas."
     },
     {
@@ -58,9 +59,9 @@
       "address": "Calle 5 de Febrero 404, Tijuana, Baja California, 22000",
       "phone": "+52 664 5432 1098",
       "website": "https://www.energiaverde.com",
-      "image": "energia-logo.png",
-      "membership_level": "Platinum",
+      "image": "",
+      "membership_level": 3,
       "extra_info": "Proveedor de soluciones de energía renovable para empresas."
     }
   ]
-  
+}
