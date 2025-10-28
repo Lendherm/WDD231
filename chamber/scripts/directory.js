@@ -93,44 +93,58 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create member card for grid view
     function createMemberCard(member) {
-        const card = document.createElement('div');
-        card.className = 'member-card';
-        
-        const membershipClass = getMembershipClass(member.membership_level);
-        const membershipText = getMembershipText(member.membership_level);
-        
-        // Use empty src to trigger CSS placeholder
-        const imageSrc = member.image ? `./images/members/${member.image}` : '';
-        
-        card.innerHTML = `
-            <img src="${imageSrc}" 
-                 alt="Logo de ${member.name}" 
-                 class="member-logo" 
-                 loading="lazy">
-            <h3>${member.name}</h3>
-            <div class="member-info">
-                <strong>Dirección:</strong>
-                <span>${member.address}</span>
-            </div>
-            <div class="member-info">
-                <strong>Teléfono:</strong>
-                <span>${member.phone}</span>
-            </div>
-            <div class="member-info">
-                <strong>Sitio Web:</strong>
-                <a href="${ensureHttpProtocol(member.website)}" target="_blank" rel="noopener noreferrer" class="member-website">Visitar sitio web</a>
-            </div>
-            ${member.extra_info ? `
-            <div class="member-info">
-                <strong>Información:</strong>
-                <span>${member.extra_info}</span>
-            </div>
-            ` : ''}
-            <span class="membership-level ${membershipClass}">${membershipText}</span>
-        `;
-        
-        return card;
-    }
+    const card = document.createElement('div');
+    card.className = 'member-card';
+    
+    const membershipClass = getMembershipClass(member.membership_level);
+    const membershipText = getMembershipText(member.membership_level);
+    
+    // Usar la imagen del JSON o placeholder
+    const imageSrc = member.image || '';
+    
+    card.innerHTML = `
+        <img src="${imageSrc}" 
+             alt="Logo de ${member.name}" 
+             class="member-logo" 
+             loading="lazy"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="logo-placeholder" style="display: none;">
+            <span>${getInitials(member.name)}</span>
+        </div>
+        <h2 class="member-name">${member.name}</h2>
+        <div class="member-info">
+            <strong>Dirección:</strong>
+            <span>${member.address}</span>
+        </div>
+        <div class="member-info">
+            <strong>Teléfono:</strong>
+            <span>${member.phone}</span>
+        </div>
+        <div class="member-info">
+            <strong>Sitio Web:</strong>
+            <a href="${ensureHttpProtocol(member.website)}" target="_blank" rel="noopener noreferrer" class="member-website" aria-label="Visitar sitio web de ${member.name}">Visitar sitio web</a>
+        </div>
+        ${member.extra_info ? `
+        <div class="member-info">
+            <strong>Información:</strong>
+            <span>${member.extra_info}</span>
+        </div>
+        ` : ''}
+        <span class="membership-level ${membershipClass}">${membershipText}</span>
+    `;
+    
+    return card;
+}
+
+// Función auxiliar para obtener iniciales
+function getInitials(companyName) {
+    return companyName
+        .split(' ')
+        .map(word => word.charAt(0))
+        .join('')
+        .toUpperCase()
+        .substring(0, 2);
+}
 
     // Create member list item for list view
     function createMemberListItem(member) {
