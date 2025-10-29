@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arte y Construccion Social</title>
+    <meta name="description" content="Página principal de la Cámara de Comercio - Uniendo, sirviendo y representando a la comunidad empresarial">
+
+    <!-- Estilos de Bootstrap -->
+
+    <link rel="stylesheet" href="./styles/chamber-site.css">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    
+    <!-- Scripts -->
+    <script src="./scripts/getDates.js" defer></script>
+    <script src="./scripts/weather.js" defer></script>
+    <script src="./scripts/spotlights.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <!-- Ícono del menú hamburguesa -->
+            <div class="menu-icon" id="menu-toggle">
+                <span class="menu-icon-symbol">&#9776;</span>
+                <span class="menu-icon-text">Menú</span>
+            </div>
+
+            <!-- Aniversario -->
+            <div class="anniversary">
+                <div class="anniversary-title">Cumplimos</div>
+                <div class="anniversary-year">150 años</div>
+                <div class="anniversary-text">de unir, servir y representar</div>
+            </div>
+
+            <!-- Logo -->
+            <div class="logo">
+                <img src="./images/lanetalogo.webp" alt="Logo Cámara de Comercio" loading="lazy">
+            </div>
+
+            <!-- Botón "Afiliarme" -->
+            <a href="join.html" class="affiliate-button">QUIERO AFILIARME</a>
+        </div>
+    </header>
+
+    <!-- Menú lateral -->
+    <div class="overlay" id="overlay"></div>
+    <div class="side-menu" id="side-menu">
+        <nav>
+            <h2>Menú Principal</h2>
+            <ul>
+                <li><a href="index.html"><i class="bi bi-arrow-right"></i> Inicio</a></li>
+                <li><a href="directory.html"><i class="bi bi-arrow-right"></i> Directorio</a></li>
+                <li><a href="join.html"><i class="bi bi-arrow-right"></i> Únete</a></li>
+                <li><a href="#"><i class="bi bi-arrow-right"></i> Servicios</a></li>
+                <li><a href="#"><i class="bi bi-arrow-right"></i> Representatividad</a></li>
+                <li><a href="#"><i class="bi bi-arrow-right"></i> Eventos</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <!-- Hero Section con Call to Action -->
+ <section class="hero-section"> 
+    <div class="hero-image">
+        <img src="https://picsum.photos/1600/900" 
+             alt="Imagen aleatoria" 
+             loading="lazy">
+        <div class="hero-content">
+            <h1>Bienvenido a la Cámara de Comercio</h1>
+            <p>150 años impulsando el crecimiento empresarial</p>
+            <a href="join.html" class="cta-button">Únete a Nuestra Cámara</a>
+        </div>
+    </div>
+</section>
+
+
+        <!-- Current Events Section -->
+        <section class="current-events">
+            <div class="container">
+                <h2>Eventos Actuales</h2>
+                <div class="events-grid">
+                    <div class="event-card">
+                        <h3>Foro de Negocios 2024</h3>
+                        <p><strong>Fecha:</strong> 15 de Noviembre, 2024</p>
+                        <p><strong>Lugar:</strong> Centro de Convenciones</p>
+                        <p>Conferencias magistrales y networking empresarial.</p>
+                    </div>
+                    <div class="event-card">
+                        <h3>Taller de Digitalización</h3>
+                        <p><strong>Fecha:</strong> 22 de Noviembre, 2024</p>
+                        <p><strong>Lugar:</strong> Sala de Capacitación</p>
+                        <p>Aprende a digitalizar tu negocio en 2024.</p>
+                    </div>
+                    <div class="event-card">
+                        <h3>Feria de Exportación</h3>
+                        <p><strong>Fecha:</strong> 30 de Noviembre, 2024</p>
+                        <p><strong>Lugar:</strong> Explanada Principal</p>
+                        <p>Oportunidades de negocio internacional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weather Section -->
+        <section class="weather-section">
+            <div class="container">
+                <h2>Clima Actual</h2>
+                <div class="weather-content">
+                    <div class="current-weather">
+                        <h3>Ciudad de México</h3>
+                        <div id="weather-data">
+                            <p id="temperature">Cargando temperatura...</p>
+                            <p id="weather-description">Cargando descripción...</p>
+                        </div>
+                    </div>
+                    <div class="weather-forecast">
+                        <h3>Pronóstico 3 Días</h3>
+                        <div id="forecast-container">
+                            <!-- El JavaScript cargará el pronóstico aquí -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Spotlights Section -->
+        <section class="spotlights-section">
+            <div class="container">
+                <h2>Empresas Destacadas</h2>
+                <div class="spotlights-container" id="spotlights-container">
+                    <!-- El JavaScript cargará los miembros destacados aquí -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Luis Emilio Nathanael De la Rosa Meneses, Mexico, wdd131</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+
+</html>
