@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Mexico City | Chamber of Commerce</title>
+    <meta name="description" content="Discover the amazing points of interest in Mexico City with our Chamber of Commerce guide">
+    <link rel="stylesheet" href="./styles/chamber-site.css">
+    <link rel="stylesheet" href="./styles/discover.css">
+    <script src="./scripts/discover.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="menu-icon" id="menu-toggle">
+                <span class="menu-icon-symbol">&#9776;</span>
+                <span class="menu-icon-text">Menú</span>
+            </div>
+
+            <div class="anniversary">
+                <div class="anniversary-title">Cumplimos</div>
+                <div class="anniversary-year">150 años</div>
+                <div class="anniversary-text">de unir, servir y representar</div>
+            </div>
+
+            <div class="logo">
+                <img src="./images/lanetalogo.webp" alt="Logo Cámara de Comercio" loading="lazy">
+            </div>
+
+            <a href="join.html" class="affiliate-button">QUIERO AFILIARME</a>
+        </div>
+    </header>
+
+    <!-- Side Menu -->
+    <div class="overlay" id="overlay"></div>
+    <div class="side-menu" id="side-menu">
+        <nav>
+            <h2>Menú Principal</h2>
+            <ul>
+                <li><a href="index.html"><i class="bi bi-arrow-right"></i> Inicio</a></li>
+                <li><a href="discover.html"><i class="bi bi-arrow-right"></i> Discover</a></li>
+                <li><a href="directory.html"><i class="bi bi-arrow-right"></i> Directorio</a></li>
+                <li><a href="join.html"><i class="bi bi-arrow-right"></i> Únete</a></li>
+                <li><a href="contact.html"><i class="bi bi-arrow-right"></i> Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="discover-main">
+        <section class="visitor-info">
+            <h2>Welcome to Mexico City!</h2>
+            <div class="visit-message" id="visit-message"></div>
+        </section>
+
+        <section class="discover-grid" id="discover-grid">
+            <h2 class="visually-hidden">Points of Interest in Mexico City</h2>
+            <!-- Cards will be inserted here by JavaScript -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Luis Emilio Nathanael De la Rosa Meneses, Mexico, wdd231</p>
+        <p id="lastModified"></p>
+    </footer>
+
+    <script>
+        // Menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const sideMenu = document.getElementById('side-menu');
+            const overlay = document.getElementById('overlay');
+
+            if (menuToggle && sideMenu && overlay) {
+                menuToggle.addEventListener('click', () => {
+                    sideMenu.classList.toggle('open');
+                    overlay.classList.toggle('active');
+                });
+
+                overlay.addEventListener('click', () => {
+                    sideMenu.classList.remove('open');
+                    overlay.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
