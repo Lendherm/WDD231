@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unirse a la Cámara de Comercio</title>
+    <meta name="description" content="Solicita tu membresía en la Cámara de Comercio - Únete a nuestra comunidad empresarial">
+    <link rel="stylesheet" href="./styles/chamber-site.css">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/join.css">
+    <script src="./scripts/getdates.js" defer></script>
+    <script src="./scripts/join.js" defer></script>
+</head>
+<body>
+    <!-- Header igual que index.html -->
+    <header class="site-header">
+        <div class="container">
+            <!-- Ícono del menú hamburguesa -->
+            <div class="menu-icon" id="menu-toggle">
+                <span class="menu-icon-symbol">&#9776;</span>
+                <span class="menu-icon-text">Menú</span>
+            </div>
+
+            <!-- Aniversario -->
+            <div class="anniversary">
+                <div class="anniversary-title">Cumplimos</div>
+                <div class="anniversary-year">150 años</div>
+                <div class="anniversary-text">de unir, servir y representar</div>
+            </div>
+
+            <!-- Logo -->
+            <div class="logo">
+                <img src="./images/lanetalogo.webp" alt="Logo Cámara de Comercio" loading="lazy">
+            </div>
+
+            <!-- Botón "Afiliarme" -->
+            <a href="join.html" class="affiliate-button">QUIERO AFILIARME</a>
+        </div>
+    </header>
+
+    <!-- Menú lateral -->
+    <div class="overlay" id="overlay"></div>
+    <div class="side-menu" id="side-menu">
+        <nav>
+            <h2>Menú Principal</h2>
+            <ul>
+                <li><a href="index.html"><i class="bi bi-arrow-right"></i> Inicio</a></li>
+                <li><a href="directory.html"><i class="bi bi-arrow-right"></i> Directorio</a></li>
+                <li><a href="join.html"><i class="bi bi-arrow-right"></i> Únete</a></li>
+                <li><a href="#"><i class="bi bi-arrow-right"></i> Servicios</a></li>
+                <li><a href="#"><i class="bi bi-arrow-right"></i> Representatividad</a></li>
+                <li><a href="#"><i class="bi bi-arrow-right"></i> Eventos</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="join-main">
+        <h1 class="join-title">Únete a la Cámara de Comercio</h1>
+
+        <section class="join-content">
+            <!-- Formulario -->
+            <form id="membershipForm" method="get" action="thankyou.html" class="join-form">
+                <label for="firstName">
+                    Nombre:
+                    <input type="text" id="firstName" name="firstName" title="Nombre" autocomplete="given-name" required>
+                </label>
+
+                <label for="lastName">
+                    Apellido:
+                    <input type="text" id="lastName" name="lastName" title="Apellido" autocomplete="family-name" required>
+                </label>
+
+                <label for="organizationTitle">
+                    Cargo en la organización:
+                    <input type="text" id="organizationTitle" name="organizationTitle" title="Cargo en la organización"
+                           autocomplete="organization-title"
+                           pattern="[A-Za-záéíóúñÑ\s\-]{7,}"
+                           title="Solo letras, espacios y guiones. Mínimo 7 caracteres.">
+                </label>
+
+                <label for="email">
+                    Correo electrónico:
+                    <input type="email" id="email" name="email" title="Correo electrónico"
+                           autocomplete="email" required
+                           placeholder="ejemplo@empresa.com">
+                </label>
+
+                <label for="phone">
+                    Teléfono móvil:
+                    <input type="tel" id="phone" name="phone" title="Teléfono móvil"
+                           autocomplete="tel" required>
+                </label>
+
+                <label for="organization">
+                    Nombre de la organización:
+                    <input type="text" id="organization" name="organization" title="Nombre de la organización"
+                           autocomplete="organization" required>
+                </label>
+
+                <fieldset class="membership-level-fieldset">
+                    <legend>Nivel de Membresía</legend>
+                    <div class="radio-group">
+                        <label for="np">
+                            <input type="radio" id="np" name="membership" value="np" required>
+                            NP Membership (Sin costo)
+                        </label>
+                        <label for="bronze">
+                            <input type="radio" id="bronze" name="membership" value="bronze">
+                            Bronze Membership
+                        </label>
+                        <label for="silver">
+                            <input type="radio" id="silver" name="membership" value="silver">
+                            Silver Membership
+                        </label>
+                        <label for="gold">
+                            <input type="radio" id="gold" name="membership" value="gold">
+                            Gold Membership
+                        </label>
+                    </div>
+                </fieldset>
+
+                <label for="description">
+                    Descripción del negocio:
+                    <textarea id="description" name="description" title="Descripción del negocio" rows="4"></textarea>
+                </label>
+
+                <input type="hidden" name="timestamp" id="timestamp">
+
+                <input type="submit" value="Enviar Solicitud" class="btn-submit">
+            </form>
+
+            <!-- Tarjetas de membresía -->
+            <section class="membership-cards">
+                <div class="card np animated-card">
+                    <h3>NP Membership</h3>
+                    <p>Sin costo. Ideal para organizaciones sin fines de lucro.</p>
+                    <a href="#npModal" class="open-modal card-link">Ver beneficios</a>
+                </div>
+
+                <div class="card bronze animated-card">
+                    <h3>Bronze Membership</h3>
+                    <p>Acceso a eventos y promoción básica.</p>
+                    <a href="#bronzeModal" class="open-modal card-link">Ver beneficios</a>
+                </div>
+
+                <div class="card silver animated-card">
+                    <h3>Silver Membership</h3>
+                    <p>Mayor exposición y descuentos especiales.</p>
+                    <a href="#silverModal" class="open-modal card-link">Ver beneficios</a>
+                </div>
+
+                <div class="card gold animated-card">
+                    <h3>Gold Membership</h3>
+                    <p>Beneficios premium, promoción destacada y apoyo prioritario.</p>
+                    <a href="#goldModal" class="open-modal card-link">Ver beneficios</a>
+                </div>
+            </section>
+        </section>
+
+        <!-- Modales -->
+        <div id="npModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>NP Membership</h2>
+                <ul>
+                    <li>Sin costo para organizaciones sin fines de lucro</li>
+                    <li>Participación en eventos comunitarios</li>
+                    <li>Listado en nuestro directorio en línea</li>
+                    <li>Acceso a boletines informativos</li>
+                    <li>Descuentos en publicaciones</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="bronzeModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Bronze Membership</h2>
+                <ul>
+                    <li>Todos los beneficios NP</li>
+                    <li>Acceso a eventos de networking</li>
+                    <li>Promoción básica en redes sociales</li>
+                    <li>Descuentos en capacitaciones (10%)</li>
+                    <li>Participación en comités</li>
+                    <li class="price">Costo: $100 USD anual</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="silverModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Silver Membership</h2>
+                <ul>
+                    <li>Todos los beneficios Bronze</li>
+                    <li>Promoción destacada en homepage</li>
+                    <li>Descuentos en eventos (25%)</li>
+                    <li>Capacitaciones mensuales gratuitas</li>
+                    <li>Asesoría empresarial básica</li>
+                    <li>Publicación en boletín mensual</li>
+                    <li class="price">Costo: $250 USD anual</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="goldModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Gold Membership</h2>
+                <ul>
+                    <li>Todos los beneficios Silver</li>
+                    <li>Publicidad destacada y posicionamiento premium</li>
+                    <li>Acceso VIP a todos los eventos</li>
+                    <li>Descuentos exclusivos (50%)</li>
+                    <li>Asesoría empresarial personalizada</li>
+                    <li>Spotlight mensual en redes sociales</li>
+                    <li>Derecho a voto en asambleas</li>
+                    <li class="price">Costo: $500 USD anual</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer igual que index.html -->
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Luis Emilio Nathanael De la Rosa Meneses, Mexico, wdd131</p>
+        <p id="lastModified"></p>
+    </footer>
+
+    <script>
+        // Initialize menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const sideMenu = document.getElementById('side-menu');
+            const overlay = document.getElementById('overlay');
+
+            if (menuToggle && sideMenu && overlay) {
+                menuToggle.addEventListener('click', function() {
+                    sideMenu.classList.toggle('open');
+                    overlay.classList.toggle('active');
+                    document.body.style.overflow = sideMenu.classList.contains('open') ? 'hidden' : 'auto';
+                });
+
+                overlay.addEventListener('click', function() {
+                    sideMenu.classList.remove('open');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
