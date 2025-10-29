@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoGainzer - Site Plan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3436;
+            background-color: #f8f9fa;
+        }
+
+        /* Header Styles */
+        .site-header {
+            background: linear-gradient(135deg, #0a3d62 0%, #079992 100%);
+            color: white;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .container_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .menu-icon {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .menu-icon-symbol {
+            font-size: 24px;
+            margin-right: 8px;
+        }
+
+        .logo h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            color: white;
+            margin: 0;
+        }
+
+        .logo span {
+            color: #00b894;
+        }
+
+        .action-button {
+            background-color: #00b894;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .action-button:hover {
+            background-color: #00a085;
+            transform: translateY(-2px);
+        }
+
+        .mission-banner {
+            text-align: center;
+            padding: 15px;
+            background-color: rgba(10, 61, 98, 0.9);
+        }
+
+        .mission-text {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* Main Container */
+        .main-container {
+            display: flex;
+            width: 100%;
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+            gap: 30px;
+        }
+
+        /* Columns */
+        .left-column, .center-column {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .right-column {
+            flex: 2;
+        }
+
+        /* Section Styling */
+        section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+            border-left: 4px solid #079992;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #0a3d62;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #079992;
+            margin: 20px 0 10px 0;
+            font-size: 20px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #0a3d62;
+        }
+
+        /* Color Scheme */
+        .color-swatch {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            border-radius: 50%;
+            border: 2px solid #e0e0e0;
+            vertical-align: middle;
+        }
+
+        .color-swatch.primary-blue {
+            background-color: #0a3d62;
+        }
+
+        .color-swatch.secondary-teal {
+            background-color: #079992;
+        }
+
+        .color-swatch.success-green {
+            background-color: #00b894;
+        }
+
+        .color-swatch.light-bg {
+            background-color: #f8f9fa;
+            border: 2px solid #ccc;
+        }
+
+        .color-swatch.dark-text {
+            background-color: #2d3436;
+        }
+
+        /* Typography Examples */
+        .typography-example {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Design Preview */
+        .design-preview {
+            height: 100%;
+        }
+
+        .preview-image-container {
+            height: auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            border: 2px solid #079992;
+            padding: 20px;
+        }
+
+        .preview-image-section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .preview-image-section h4 {
+            font-family: 'Poppins', sans-serif;
+            color: #0a3d62;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .preview-image-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .preview-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .preview-image-wrapper:hover img {
+            transform: scale(1.02);
+        }
+
+        .image-description {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 20px;
+            background-color: #0a3d62;
+            color: white;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .main-container {
+                flex-wrap: wrap;
+            }
+            
+            .left-column, .center-column {
+                flex: 1 1 50%;
+                min-width: 0;
+            }
+            
+            .right-column {
+                flex: 1 1 100%;
+                order: 3;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .container_header {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .left-column, .center-column, .right-column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Site Header -->
+    <header class="site-header">
+        <div class="container_header">
+            <div class="menu-icon">
+                <span class="menu-icon-symbol">&#9776;</span>
+                <span class="menu-icon-text">Menu</span>
+            </div>
+            <div class="logo">
+                <h1>Go<span>Gainzer</span></h1>
+            </div>
+            <a href="#" class="action-button">Start Application</a>
+        </div>
+        <div class="mission-banner">
+            <p class="mission-text">Expert visa and immigration assistance for seamless global travel</p>
+        </div>
+    </header>
+
+    <!-- Three-Column Layout -->
+    <main class="main-container">
+        <div class="left-column">
+            <!-- About Our Organization -->
+            <section class="site-info">
+                <h2>About GoGainzer</h2>
+                <div>
+                    <section class="site-purpose">
+                        <h3>Description</h3>
+                        <p>GoGainzer is a professional visa and immigration services platform designed to simplify complex travel documentation processes. The name combines "Go" (representing travel and movement) with "Gainzer" (suggesting achievement and success in obtaining visas/immigration status).</p>
+                        <p><strong>Domain availability:</strong> gogainzer.com (pending verification)</p>
+                    </section>
+                </div>
+            </section>
+
+            <!-- Site Purpose -->
+            <section class="site-purpose">
+                <h3>Site Purpose</h3>
+                <p>The website will serve as a comprehensive digital platform to:</p>
+                <ul>
+                    <li>Provide step-by-step guidance through visa application processes</li>
+                    <li>Offer interactive DS-160 form simulation with real-time validation</li>
+                    <li>Enable document upload and management with secure storage</li>
+                    <li>Facilitate appointment scheduling and status tracking</li>
+                    <li>Deliver educational resources about different visa types</li>
+                    <li>Offer professional consultation services for complex cases</li>
+                </ul>
+            </section>
+
+            <!-- User Scenarios -->
+            <section class="user-scenarios">
+                <h2>User Scenarios</h2>
+                <p>Key questions site visitors might have:</p>
+                <ul>
+                    <li>How can I complete the DS-160 form correctly to avoid common mistakes?</li>
+                    <li>What documents do I need for a U.S. tourist visa and how should I prepare them?</li>
+                    <li>How can I track my application status and know when my interview is scheduled?</li>
+                    <li>What should I do if my previous visa application was denied?</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Center Column -->
+        <div class="center-column">
+            <!-- Color Scheme -->
+            <section class="color-schema color-scheme-section">
+                <h2>Color Scheme</h2>
+                <p>Colors used throughout the website:</p>
+                <ul>
+                    <li>
+                        <span class="color-swatch primary-blue"></span>
+                        Primary Blue (#0a3d62) - Used for headers, main navigation, and primary branding
+                    </li>
+                    <li>
+                        <span class="color-swatch secondary-teal"></span>
+                        Secondary Teal (#079992) - Used for accents, section borders, and secondary elements
+                    </li>
+                    <li>
+                        <span class="color-swatch success-green"></span>
+                        Success Green (#00b894) - Used for call-to-action buttons and positive indicators
+                    </li>
+                    <li>
+                        <span class="color-swatch light-bg"></span>
+                        Light Background (#f8f9fa) - Used for page backgrounds and content containers
+                    </li>
+                    <li>
+                        <span class="color-swatch dark-text"></span>
+                        Dark Text (#2d3436) - Used for body content and readable text elements
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Typography -->
+            <section class="typography">
+                <h2>Typography</h2>
+                <div class="typography-example font-poppins">
+                    <h3>Poppins (Headings)</h3>
+                    <p>Used for all headings and call-to-action elements for visual impact and modern appearance.</p>
+                    <p style="font-weight: 700;">Poppins Bold - Main Headings</p>
+                    <p style="font-weight: 600;">Poppins SemiBold - Subheadings</p>
+                </div>
+                <div class="typography-example font-inter">
+                    <h3>Inter (Body Text)</h3>
+                    <p>Used for all body content, form labels, and general text throughout the site.</p>
+                    <p style="font-weight: 500;">Inter Medium - Important content</p>
+                    <p style="font-weight: 400;">Inter Regular - Standard text</p>
+                </div>
+            </section>
+
+            <!-- Planned Features -->
+            <section class="planned-features">
+                <h2>Planned Features</h2>
+                <ul>
+                    <li><strong>Homepage:</strong> Service overview, testimonials, and clear calls-to-action</li>
+                    <li><strong>Visa Services Portal:</strong> Interactive application forms with step-by-step guidance</li>
+                    <li><strong>U.S. Visa Services:</strong> Specialized pages for different visa types with pricing</li>
+                    <li><strong>Document Management:</strong> Secure upload and organization of required documents</li>
+                    <li><strong>Appointment Scheduling:</strong> Calendar integration for embassy appointments</li>
+                    <li><strong>Application Tracking:</strong> Real-time status updates and notifications</li>
+                    <li><strong>Resource Library:</strong> Guides, FAQs, and official requirement information</li>
+                    <li><strong>Customer Support:</strong> Live chat and consultation booking system</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Right Column - Design Preview -->
+        <div class="right-column">
+            <section class="design-preview">
+                <h2>Design Preview</h2>
+                <div class="preview-image-container">
+                    <div class="preview-image-section">
+                        <h4>Homepage Design</h4>
+                        <div class="preview-image-wrapper">
+                            <img src="./images/Captura de pantalla 2025-10-28 214339.webp" alt="GoGainzer Homepage Design">
+                        </div>
+                        <p class="image-description">Clean, professional homepage with clear service offerings</p>
+                    </div>
+                    
+                    <div class="preview-image-section">
+                        <h4>Service Selection Interface</h4>
+                        <div class="preview-image-wrapper">
+                            <img src="./images/Captura de pantalla 2025-10-28 214402.webp" alt="Service Selection Interface">
+                        </div>
+                        <p class="image-description">Intuitive service selection with visual indicators</p>
+                    </div>
+                    
+                    <div class="preview-image-section">
+                        <h4>Visa Application Form</h4>
+                        <div class="preview-image-wrapper">
+                            <img src="./images/Captura de pantalla 2025-10-28 214537.webp" alt="Visa Application Form">
+                        </div>
+                        <p class="image-description">Step-by-step application process with progress tracking</p>
+                    </div>
+                    
+                    <div class="preview-image-section">
+                        <h4>Document Management</h4>
+                        <div class="preview-image-wrapper">
+                            <img src="./images/Captura de pantalla 2025-10-28 214557.webp" alt="Document Management System">
+                        </div>
+                        <p class="image-description">Secure document upload and organization interface</p>
+                    </div>
+                    
+                    <div class="preview-image-section">
+                        <h4>Mobile Responsive Design</h4>
+                        <div class="preview-image-wrapper">
+                            <img src="./images/Captura de pantalla 2025-10-28 214612.webp" alt="Mobile Responsive Design">
+                        </div>
+                        <p class="image-description">Optimized mobile experience for on-the-go access</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="currentYear"></span> GoGainzer Visa Services. All rights reserved.</p>
+        <p>Professional immigration assistance platform - WDD 330 Project</p>
+    </footer>
+
+    <script>
+        // Current year for footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
